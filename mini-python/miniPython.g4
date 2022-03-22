@@ -28,8 +28,8 @@ program : INDENT statement | statement program NEWLINE DEDENT ;
 statement : defStatement | ifStatement | returnStatement | printStatement | whileStatement |
             forStatement | assignStatement | functionCallStatement | expressionStatement;
 defStatement : DEF ID ( argList ) DOSPUNT sequence;
-argList : (ID)*;
-moreArgs : (COMA ID)*;
+argList : (ID moreArgs)*;
+moreArgs : (COMA ID moreArgs)*;
 ifStatement : IF expression DOSPUNT sequence
               ELSE DOSPUNT sequence;
 whileStatement : WHILE expression DOSPUNT sequence;
