@@ -23,27 +23,29 @@ def nextToken(self):
     return self.denter.next_token()
 }
 
-program : INDENT singleCommand NEWLINE DEDENT ; //el DEDENT debe llevar antes un NEWLINE
-command : singleCommand (PyCOMA singleCommand)* ;
-singleCommand :
-        ID ( ASIGN expression | PIZQ expression PDER)
-        | IF expression THEN singleCommand
-                        ELSE singleCommand
-        | WHILE expression DO singleCommand
-        | LET declaration IN singleCommand
-        | BEGIN command END ;
+//el DEDENT debe llevar antes un NEWLINE
+program : INDENT statement | statement program NEWLINE DEDENT ;
+statement : defStatement | ifStatement | returnStatement | printStatement | whileStatement |
+            forStatement | assignStatement | functionCallStatement | expressionStatement;
+defStatement : DEF ID ( argList ) DOSPUNT sequence;
+argList : (ID)*;
+moreArgs : (COMA ID)*;
+ifStatement : IF expression DOSPUNT sequence
+              ELSE DOSPUNT sequence;
+whileStatement : WHILE expression DOSPUNT sequence;
+forStatement : FOR expression IN expressionList DOSPUNT sequence;
+returnStatement : RETURN expression NEWLINE;
+printStatement : PRINT expression NEWLINE;
+assignStatement : ID = expression NEWLINE;
+functionCallStatement : primitiveExpression ( expressionList ) NEWLINE;
+expressionStatement : expressionList NEWLINE;
+sequence : INDENT moreStatements DEDENT;
 
-declaration  : singleDeclaration (PyCOMA singleDeclaration)* ;
 
-singleDeclaration :
-            CONST ID VIR expression
-    	   | VAR ID DOSPUNT typedenoter ;
-typedenoter : ID ;
-expression : primaryExpression (operator primaryExpression)* ;
-primaryExpression : NUM | ID | PIZQ expression PDER ;
-operator : MAS | MULT ; //faltan el resto
 
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //símbolos
+COMA : ',';
 PyCOMA : ';';
 ASIGN : ':=';
 PIZQ : '(';
@@ -72,6 +74,7 @@ BEGIN : 'begin';
 END : 'end';
 CONST : 'const';
 VAR : 'var';
+DEF : 'def';
 
 //otros tokens
 NUM : DIGIT DIGIT*;
