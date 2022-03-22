@@ -29,7 +29,7 @@
           <option name="outputDir" value="D:\Universidad\2022\Compiladores_e_Interpretes\Compiladores-E-Interpretes\mini-python" />
           <option name="libDir" value="" />
           <option name="encoding" value="" />
-          <option name="pkg" value="" />
+          <option name="pkg" value="generated" />
           <option name="language" value="Python3" />
           <option name="generateListener" value="false" />
         </PerGrammarGenerationSettings>

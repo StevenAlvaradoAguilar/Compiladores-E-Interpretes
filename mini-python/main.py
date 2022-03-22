@@ -1,5 +1,8 @@
-from miniPythonLexer import *
-from miniPythonParser import *
+import sys
+sys.path.append('./generated')
+
+from generated.miniPythonLexer import *
+from generated.miniPythonParser import *
 from antlr4 import *
 
 def main():
