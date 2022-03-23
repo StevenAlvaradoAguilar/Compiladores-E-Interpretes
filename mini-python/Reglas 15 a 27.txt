@@ -1,1 +1,13 @@
-
+moreStatements := statement (statement)*
+expression := additionExpression comparison
+comparison := ((<|>|<=|>=|==) additionExpression)*
+additionExpression := multiplicationExpression additionFactor
+additionFactor := ((+|-) multiplicationExpression)*
+multiplicationExpression := elementExpression multiplicationFactor
+multiplicationFactor := ((*|/) elementExpression)*
+elementExpression := primitiveExpression elementAccess
+elementAccess := ([expression])*
+expressionList := expression moreExpressions
+moreExpressions := (, expression)*
+primitiveExpression := integer | float | charConst | String | identifier( ( expressionList )) | listExpression | len ( expression )
+listExpression := [ expressionList ]
