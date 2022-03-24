@@ -36,11 +36,24 @@ whileStatement : WHILE expression DOSPUNT sequence;
 forStatement : FOR expression IN expressionList DOSPUNT sequence;
 returnStatement : RETURN expression NEWLINE;
 printStatement : PRINT expression NEWLINE;
-assignStatement : ID = expression NEWLINE;
+assignStatement : ID EQUAL expression NEWLINE;
 functionCallStatement : primitiveExpression ( expressionList ) NEWLINE;
 expressionStatement : expressionList NEWLINE;
 sequence : INDENT moreStatements DEDENT;
-
+moreStatements : statement (statement)*;
+expression : additionExpression comparison;
+comparison : ((MENQUE | MAYQUE | MENQUEEQUAL | MAYQUEEQUAL | EQUALEQUAL) additionExpression)*;
+additionExpression : multiplicationExpression additionFactor;
+additionFactor : ((MAS|MEN) multiplicationExpression)*;
+multiplicationExpression : elementExpression multiplicationFactor;
+multiplicationFactor : ((MULT | DIV) elementExpression)*;
+elementExpression : primitiveExpression elementAccess;
+elementAccess : ( CIZQ expression CDER )*;
+expressionList : expression moreExpressions;
+moreExpressions : (COMA expression)*;
+primitiveExpression : ID | FLOAT | CHARCONTS | STRING | ID ((expressionList)*) | (expression)
+| listExpression | LEN PIZQ expression PDER;
+listExpression : CIZQ expressionList CDER;
 
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -50,6 +63,8 @@ PyCOMA : ';';
 ASIGN : ':=';
 PIZQ : '(';
 PDER : ')';
+CIZQ : '[';
+CDER : ']';
 VIR : '~';
 DOSPUNT : ':';
 MAS : '+';
@@ -60,6 +75,10 @@ POT : '**';
 MOD : '%';
 MENQUE : '<';
 MAYQUE : '>';
+MENQUEEQUAL : '<=';
+MAYQUEEQUAL : '>=';
+EQUALEQUAL : '==';
+EQUAL : '=';
 //FALTAN OTROS
 
 //palabras reservadas
@@ -75,10 +94,13 @@ END : 'end';
 CONST : 'const';
 VAR : 'var';
 DEF : 'def';
+LEN : 'len';
 
 //otros tokens
 NUM : DIGIT DIGIT*;
 ID : LETTER (LETTER | DIGIT)*;
+STRING :  LETTER (LETTER | LETTER)*;
+FLOAT : DIGIT;
 
 fragment DIGIT : [0-9];
 fragment LETTER : [a-z];
