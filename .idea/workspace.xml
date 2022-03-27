@@ -5,17 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2dbab5a2-1556-4299-aad3-ec1f3cb8db4e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Compiladores-E-Interpretes.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Compiladores-E-Interpretes.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MiniPython/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MiniPython/.idea/MiniPython.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MiniPython/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MiniPython/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MiniPython/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MiniPython/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini-python/Reglas 15 a 27.txt" beforeDir="false" afterPath="$PROJECT_DIR$/mini-python/Reglas 15 a 27.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini-python/generated/miniPythonLexer.interp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini-python/generated/miniPythonLexer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini-python/generated/miniPythonLexer.tokens" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/mini-python/miniPython.g4" beforeDir="false" afterPath="$PROJECT_DIR$/mini-python/miniPython.g4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini-python/test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/mini-python/test.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,20 +25,53 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="26fgdlxkmED1SCfdaLocooTTq4i" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Semana5/untitled" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/mini-python" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RunManager">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Compiladores-E-Interpretes" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/mini-python" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mini-python/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -54,11 +83,31 @@
       <updated>1647820143497</updated>
       <workItem from="1647820145566" duration="703000" />
       <workItem from="1648091711201" duration="1604000" />
-      <workItem from="1648098027910" duration="611000" />
+      <workItem from="1648098027910" duration="677000" />
+      <workItem from="1648230292236" duration="12840000" />
+      <workItem from="1648305578567" duration="5530000" />
+      <workItem from="1648313850735" duration="4899000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Compiladores_E_Interpretes$main.coverage" NAME="main Coverage Results" MODIFIED="1648318142631" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mini-python" />
   </component>
 </project>

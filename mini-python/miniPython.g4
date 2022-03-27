@@ -24,36 +24,36 @@ def nextToken(self):
 }
 
 //el DEDENT debe llevar antes un NEWLINE
-program : INDENT statement | statement program NEWLINE DEDENT ;
-statement : defStatement | ifStatement | returnStatement | printStatement | whileStatement |
-            forStatement | assignStatement | functionCallStatement | expressionStatement;
-defStatement : DEF ID ( argList ) DOSPUNT sequence;
-argList : (ID moreArgs)*;
-moreArgs : (COMA ID moreArgs)*;
+program : statement (statement)*                                                                   #programMP;
+statement : (defStatement | ifStatement | returnStatement | printStatement | whileStatement
+            | forStatement | assignStatement | functionCallStatement | expressionStatement)        #statementMP;
+defStatement : DEF ID PIZQ argList PDER DOSPUNT sequence                                           #defStatementMP;
+argList : ID moreArgs                                                                              #argListMP;
+moreArgs : (COMA ID)*                                                                              #moreArgsMP;
 ifStatement : IF expression DOSPUNT sequence
-              ELSE DOSPUNT sequence;
-whileStatement : WHILE expression DOSPUNT sequence;
-forStatement : FOR expression IN expressionList DOSPUNT sequence;
-returnStatement : RETURN expression NEWLINE;
-printStatement : PRINT expression NEWLINE;
-assignStatement : ID EQUAL expression NEWLINE;
-functionCallStatement : primitiveExpression ( expressionList ) NEWLINE;
-expressionStatement : expressionList NEWLINE;
-sequence : INDENT moreStatements DEDENT;
-moreStatements : statement (statement)*;
+              ELSE DOSPUNT sequence                                                                #ifStatementMP;
+whileStatement : WHILE expression DOSPUNT sequence                                                 #whileStatementMP;
+forStatement : FOR expression IN expressionList DOSPUNT sequence                                   #forStatementMP;
+returnStatement : RETURN expression NEWLINE                                                        #returnStatementMP;
+printStatement : PRINT expression NEWLINE                                                          #printStatementMP;
+assignStatement : ID EQUAL expression NEWLINE                                                      #assignStatementMP;
+functionCallStatement : primitiveExpression PIZQ expressionList PDER NEWLINE                       #functionCallStatementMP;
+expressionStatement : expressionList NEWLINE                                                       #expressionStatementMP;
+sequence : INDENT moreStatements DEDENT                                                            #sequenceMP;
+moreStatements : statement (statement)*                                                            #moreStatementsMP;
 expression : additionExpression comparison;
-comparison : ((MENQUE | MAYQUE | MENQUEEQUAL | MAYQUEEQUAL | EQUALEQUAL) additionExpression)*;
-additionExpression : multiplicationExpression additionFactor;
-additionFactor : ((MAS|MEN) multiplicationExpression)*;
-multiplicationExpression : elementExpression multiplicationFactor;
-multiplicationFactor : ((MULT | DIV) elementExpression)*;
-elementExpression : primitiveExpression elementAccess;
-elementAccess : ( CIZQ expression CDER )*;
-expressionList : expression moreExpressions;
-moreExpressions : (COMA expression)*;
-primitiveExpression : ID | FLOAT | CHARCONTS | STRING | ID ((expressionList)*) | (expression)
-| listExpression | LEN PIZQ expression PDER;
-listExpression : CIZQ expressionList CDER;
+comparison : ((MENQUE | MAYQUE | MENQUEEQUAL | MAYQUEEQUAL | EQUALEQUAL) additionExpression)*      #comparisonMP;
+additionExpression : multiplicationExpression additionFactor                                       #additionExpressionMP;
+additionFactor : ( MAS|MEN multiplicationExpression)*                                              #additionFactorMP;
+multiplicationExpression : elementExpression multiplicationFactor                                  #multiplicationExpressionMP;
+multiplicationFactor : (MULT | DIV elementExpression)*                                             #multiplicationFactorMP;
+elementExpression : primitiveExpression elementAccess                                              #elementExpressionMP;
+elementAccess : ( CIZQ expression CDER )*                                                          #elementAccessMP;
+expressionList : expression moreExpressions                                                        #expressionListMP;
+moreExpressions : (COMA expression)*                                                               #moreExpressionsMP;
+primitiveExpression : (ID | FLOAT | CHARCONTS | STRING | ID ( PIZQ expressionList PDER | )
+| PIZQ expression PDER | listExpression | LEN PIZQ expression PDER)                                #primitiveExpressionMP;
+listExpression : CIZQ expressionList CDER                                                          #listExpressionMP;
 
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -95,15 +95,22 @@ CONST : 'const';
 VAR : 'var';
 DEF : 'def';
 LEN : 'len';
+FOR : 'for';
+RETURN : 'return';
+PRINT : 'print';
 
 //otros tokens
-NUM : DIGIT DIGIT*;
+NUM : DIGITNOTZERO DIGIT*;
 ID : LETTER (LETTER | DIGIT)*;
-STRING :  LETTER (LETTER | LETTER)*;
-FLOAT : DIGIT;
+STRING :  '\'' (LETTER | DIGIT | SIMBOLS)* '\'' | ('"' (LETTER |DIGIT | SIMBOLS)* '"');
+FLOAT : (DIGIT)+.(DIGIT)+;
+CHARCONTS : '\'' (LETTER | DIGIT | SIMBOLS)* '\'';
+SIMBOLS : COMA | PyCOMA | ASIGN | PIZQ | PDER | CIZQ | CDER | VIR | DOSPUNT | MAS | MULT
+| MEN | DIV | POT | MOD MENQUE | MAYQUE | MENQUEEQUAL | MAYQUEEQUAL | EQUALEQUAL | EQUAL;
 
 fragment DIGIT : [0-9];
-fragment LETTER : [a-z];
+fragment LETTER : [a-z A-Z_];
+fragment DIGITNOTZERO : [1-9];
 
 NEWLINE: ('\r'? '\n' (' ' | '\t')*); //For tabs just switch out ' '* with '\t'*
 
