@@ -5,11 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2dbab5a2-1556-4299-aad3-ec1f3cb8db4e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini-python/generated/miniPythonLexer.interp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini-python/generated/miniPythonLexer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini-python/generated/miniPythonLexer.tokens" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini-python/generated/miniPython.interp" beforeDir="false" afterPath="$PROJECT_DIR$/mini-python/generated/miniPython.interp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini-python/generated/miniPython.tokens" beforeDir="false" afterPath="$PROJECT_DIR$/mini-python/generated/miniPython.tokens" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini-python/generated/miniPythonLexer.interp" beforeDir="false" afterPath="$PROJECT_DIR$/mini-python/generated/miniPythonLexer.interp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini-python/generated/miniPythonLexer.py" beforeDir="false" afterPath="$PROJECT_DIR$/mini-python/generated/miniPythonLexer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini-python/generated/miniPythonLexer.tokens" beforeDir="false" afterPath="$PROJECT_DIR$/mini-python/generated/miniPythonLexer.tokens" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini-python/generated/miniPythonParser.py" beforeDir="false" afterPath="$PROJECT_DIR$/mini-python/generated/miniPythonParser.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mini-python/miniPython.g4" beforeDir="false" afterPath="$PROJECT_DIR$/mini-python/miniPython.g4" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mini-python/test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/mini-python/test.txt" afterDir="false" />
     </list>
@@ -87,6 +89,11 @@
       <workItem from="1648230292236" duration="12840000" />
       <workItem from="1648305578567" duration="5530000" />
       <workItem from="1648313850735" duration="4899000" />
+      <workItem from="1648357005236" duration="4966000" />
+      <workItem from="1648414360247" duration="1999000" />
+      <workItem from="1648436919667" duration="1856000" />
+      <workItem from="1648438877943" duration="583000" />
+      <workItem from="1648507408909" duration="1434000" />
     </task>
     <servers />
   </component>
@@ -108,6 +115,6 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Compiladores_E_Interpretes$main.coverage" NAME="main Coverage Results" MODIFIED="1648318142631" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mini-python" />
+    <SUITE FILE_PATH="coverage/Compiladores_E_Interpretes$main.coverage" NAME="main Coverage Results" MODIFIED="1648508848232" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mini-python" />
   </component>
 </project>

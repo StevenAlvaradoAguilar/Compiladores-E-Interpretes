@@ -39,7 +39,7 @@ printStatement : PRINT expression NEWLINE                                       
 assignStatement : ID EQUAL expression NEWLINE                                                      #assignStatementMP;
 functionCallStatement : primitiveExpression PIZQ expressionList PDER NEWLINE                       #functionCallStatementMP;
 expressionStatement : expressionList NEWLINE                                                       #expressionStatementMP;
-sequence : INDENT moreStatements DEDENT                                                            #sequenceMP;
+sequence : INDENT moreStatements NEWLINE DEDENT                                                            #sequenceMP;
 moreStatements : statement (statement)*                                                            #moreStatementsMP;
 expression : additionExpression comparison;
 comparison : ((MENQUE | MAYQUE | MENQUEEQUAL | MAYQUEEQUAL | EQUALEQUAL) additionExpression)*      #comparisonMP;
@@ -51,7 +51,7 @@ elementExpression : primitiveExpression elementAccess                           
 elementAccess : ( CIZQ expression CDER )*                                                          #elementAccessMP;
 expressionList : expression moreExpressions                                                        #expressionListMP;
 moreExpressions : (COMA expression)*                                                               #moreExpressionsMP;
-primitiveExpression : (ID | FLOAT | CHARCONTS | STRING | ID ( PIZQ expressionList PDER | )
+primitiveExpression : (MEN? NUM | MEN? FLOAT | CHARCONTS | STRING | ID ( PIZQ expressionList PDER | )
 | PIZQ expression PDER | listExpression | LEN PIZQ expression PDER)                                #primitiveExpressionMP;
 listExpression : CIZQ expressionList CDER                                                          #listExpressionMP;
 
@@ -79,6 +79,7 @@ MENQUEEQUAL : '<=';
 MAYQUEEQUAL : '>=';
 EQUALEQUAL : '==';
 EQUAL : '=';
+POINT : '.';
 //FALTAN OTROS
 
 //palabras reservadas
@@ -102,16 +103,23 @@ PRINT : 'print';
 //otros tokens
 NUM : DIGITNOTZERO DIGIT*;
 ID : LETTER (LETTER | DIGIT)*;
+
 STRING :  '\'' (LETTER | DIGIT | SIMBOLS)* '\'' | ('"' (LETTER |DIGIT | SIMBOLS)* '"');
-FLOAT : (DIGIT)+.(DIGIT)+;
+FLOAT : ((DIGITNOTZERO | '0' ) '.' (DIGIT)+ )| (DIGITNOTZERO (DIGIT)+ '.' DIGIT+);
+
 CHARCONTS : '\'' (LETTER | DIGIT | SIMBOLS)* '\'';
 SIMBOLS : COMA | PyCOMA | ASIGN | PIZQ | PDER | CIZQ | CDER | VIR | DOSPUNT | MAS | MULT
-| MEN | DIV | POT | MOD MENQUE | MAYQUE | MENQUEEQUAL | MAYQUEEQUAL | EQUALEQUAL | EQUAL;
+| MEN | DIV | POT | MOD | MENQUE | MAYQUE | MENQUEEQUAL | MAYQUEEQUAL | EQUALEQUAL | EQUAL | POINT;
+
+//COMENTARIOS
+COMENTLINEA : ('#' ~[\r\n]* NEWLINE)-> skip;
+COMENTMULTILINEA : ('"""' ~[\r\n]* NEWLINE)-> skip;
+COMENTMULTILINEA1 : ('“””' ~[\r\n]* NEWLINE)-> skip;
 
 fragment DIGIT : [0-9];
 fragment LETTER : [a-z A-Z_];
 fragment DIGITNOTZERO : [1-9];
 
-NEWLINE: ('\r'? '\n' (' ' | '\t')*); //For tabs just switch out ' '* with '\t'*
+NEWLINE: ('\r'? '\n' (' ' | '\t') *); //For tabs just switch out ' '* with '\t'*
 
-WS  :   [ +\r\n\t] -> skip ;
+WS  :   [ +\r\n\t#] -> skip ;
