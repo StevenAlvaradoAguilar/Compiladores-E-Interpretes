@@ -24,7 +24,7 @@ def nextToken(self):
 }
 
 //el DEDENT debe llevar antes un NEWLINE
-program : statement (statement)*                                                                   #programMP;
+program : statement (statement)*                                                                  #programMP;
 statement : (defStatement | ifStatement | returnStatement | printStatement | whileStatement
             | forStatement | assignStatement | functionCallStatement | expressionStatement)        #statementMP;
 defStatement : DEF ID PIZQ argList PDER DOSPUNT sequence                                           #defStatementMP;
@@ -39,7 +39,7 @@ printStatement : PRINT expression NEWLINE                                       
 assignStatement : ID EQUAL expression NEWLINE                                                      #assignStatementMP;
 functionCallStatement : primitiveExpression PIZQ expressionList PDER NEWLINE                       #functionCallStatementMP;
 expressionStatement : expressionList NEWLINE                                                       #expressionStatementMP;
-sequence : INDENT moreStatements NEWLINE DEDENT                                                            #sequenceMP;
+sequence : INDENT moreStatements DEDENT                                                            #sequenceMP;
 moreStatements : statement (statement)*                                                            #moreStatementsMP;
 expression : additionExpression comparison;
 comparison : ((MENQUE | MAYQUE | MENQUEEQUAL | MAYQUEEQUAL | EQUALEQUAL) additionExpression)*      #comparisonMP;
@@ -49,10 +49,10 @@ multiplicationExpression : elementExpression multiplicationFactor               
 multiplicationFactor : (MULT | DIV elementExpression)*                                             #multiplicationFactorMP;
 elementExpression : primitiveExpression elementAccess                                              #elementExpressionMP;
 elementAccess : ( CIZQ expression CDER )*                                                          #elementAccessMP;
-expressionList : expression moreExpressions                                                        #expressionListMP;
+expressionList : (expression moreExpressions | )                                                   #expressionListMP;
 moreExpressions : (COMA expression)*                                                               #moreExpressionsMP;
-primitiveExpression : (MEN? NUM | MEN? FLOAT | CHARCONTS | STRING | ID ( PIZQ expressionList PDER | )
-| PIZQ expression PDER | listExpression | LEN PIZQ expression PDER)                                #primitiveExpressionMP;
+primitiveExpression : (MEN? NUM | MEN? FLOAT | CHARCONTS | STRING | ID (( PIZQ expressionList PDER
+                      | )) | PIZQ expression PDER | listExpression | LEN PIZQ expression PDER)     #primitiveExpressionMP;
 listExpression : CIZQ expressionList CDER                                                          #listExpressionMP;
 
 
@@ -101,11 +101,11 @@ RETURN : 'return';
 PRINT : 'print';
 
 //otros tokens
-NUM : DIGITNOTZERO DIGIT*;
+NUM : DIGITNOTZERO DIGIT* | '0';
 ID : LETTER (LETTER | DIGIT)*;
 
 STRING :  '\'' (LETTER | DIGIT | SIMBOLS)* '\'' | ('"' (LETTER |DIGIT | SIMBOLS)* '"');
-FLOAT : ((DIGITNOTZERO | '0' ) '.' (DIGIT)+ )| (DIGITNOTZERO (DIGIT)+ '.' DIGIT+);
+FLOAT : ((DIGITNOTZERO | '0' ) POINT (DIGIT)+ )| (DIGITNOTZERO (DIGIT)+ POINT DIGIT+);
 
 CHARCONTS : '\'' (LETTER | DIGIT | SIMBOLS)* '\'';
 SIMBOLS : COMA | PyCOMA | ASIGN | PIZQ | PDER | CIZQ | CDER | VIR | DOSPUNT | MAS | MULT
@@ -113,8 +113,7 @@ SIMBOLS : COMA | PyCOMA | ASIGN | PIZQ | PDER | CIZQ | CDER | VIR | DOSPUNT | MA
 
 //COMENTARIOS
 COMENTLINEA : ('#' ~[\r\n]* NEWLINE)-> skip;
-COMENTMULTILINEA : ('"""' ~[\r\n]* NEWLINE)-> skip;
-COMENTMULTILINEA1 : ('“””' ~[\r\n]* NEWLINE)-> skip;
+COMENTMULTILINEA : ('"""' .*? '"""' NEWLINE)-> skip;
 
 fragment DIGIT : [0-9];
 fragment LETTER : [a-z A-Z_];

@@ -93,7 +93,10 @@
       <workItem from="1648414360247" duration="1999000" />
       <workItem from="1648436919667" duration="1856000" />
       <workItem from="1648438877943" duration="583000" />
-      <workItem from="1648507408909" duration="1434000" />
+      <workItem from="1648507408909" duration="1670000" />
+      <workItem from="1648511220018" duration="1175000" />
+      <workItem from="1648513610032" duration="2675000" />
+      <workItem from="1648525467963" duration="4935000" />
     </task>
     <servers />
   </component>
@@ -115,6 +118,6 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Compiladores_E_Interpretes$main.coverage" NAME="main Coverage Results" MODIFIED="1648508848232" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mini-python" />
+    <SUITE FILE_PATH="coverage/Compiladores_E_Interpretes$main.coverage" NAME="main Coverage Results" MODIFIED="1648530290064" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mini-python" />
   </component>
 </project>
