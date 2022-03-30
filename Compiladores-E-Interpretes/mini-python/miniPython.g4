@@ -42,7 +42,8 @@ expressionStatement : expressionList NEWLINE                                    
 sequence : INDENT moreStatements DEDENT                                                            #sequenceMP;
 moreStatements : (statement)+                                                                      #moreStatementsMP;
 expression : additionExpression comparison;
-comparison : ((MENQUE | MAYQUE | MENQUEEQUAL | MAYQUEEQUAL | EQUALEQUAL) additionExpression)*      #comparisonMP;
+comparison : ((MENQUE | MAYQUE | MENQUEEQUAL | MAYQUEEQUAL | MULTEQUAL | DIVEQUAL
+| EQUALEQUAL) additionExpression)*                                                                 #comparisonMP;
 additionExpression : multiplicationExpression additionFactor                                       #additionExpressionMP;
 additionFactor : ((MAS|MEN) multiplicationExpression)*                                             #additionFactorMP;
 multiplicationExpression : elementExpression multiplicationFactor                                  #multiplicationExpressionMP;
@@ -80,8 +81,8 @@ MAYQUEEQUAL : '>=';
 EQUALEQUAL : '==';
 MASEQUAL : '+=';
 MENEQUAL : '-=';
-// POR = Y DIV=
-//FALTAN OTROS
+MULTEQUAL : '*=';
+DIVEQUAL : '/=';
 
 //palabras reservadas
 IF : 'if';
@@ -115,7 +116,8 @@ fragment DIGIT : [0-9];
 fragment LETTER : [a-z] | [A-Z] | '_';
 fragment DIGITNOTZERO : [1-9];
 fragment SIMBOLS : COMA | PyCOMA | ASIGN | PIZQ | PDER | CIZQ | CDER | VIR | DOSPUNT | MAS | MULT | ' '|
-MEN | DIV | POT | MOD | MENQUE | MAYQUE | MENQUEEQUAL | MAYQUEEQUAL | EQUALEQUAL | ASIGN | MASEQUAL | MENEQUAL;
+MEN | DIV | POT | MOD | MENQUE | MAYQUE | MENQUEEQUAL | MAYQUEEQUAL | EQUALEQUAL | ASIGN | MASEQUAL | MENEQUAL |
+MULTEQUAL | DIVEQUAL;
 
 NEWLINE: ('\r'? '\n' (' ' | '\t') *); //For tabs just switch out ' '* with '\t'*
 
