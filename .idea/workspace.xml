@@ -6,14 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2dbab5a2-1556-4299-aad3-ec1f3cb8db4e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini-python/generated/miniPython.interp" beforeDir="false" afterPath="$PROJECT_DIR$/mini-python/generated/miniPython.interp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini-python/generated/miniPython.tokens" beforeDir="false" afterPath="$PROJECT_DIR$/mini-python/generated/miniPython.tokens" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini-python/generated/miniPythonLexer.interp" beforeDir="false" afterPath="$PROJECT_DIR$/mini-python/generated/miniPythonLexer.interp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini-python/generated/miniPythonLexer.py" beforeDir="false" afterPath="$PROJECT_DIR$/mini-python/generated/miniPythonLexer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini-python/generated/miniPythonLexer.tokens" beforeDir="false" afterPath="$PROJECT_DIR$/mini-python/generated/miniPythonLexer.tokens" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini-python/generated/miniPythonParser.py" beforeDir="false" afterPath="$PROJECT_DIR$/mini-python/generated/miniPythonParser.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini-python/miniPython.g4" beforeDir="false" afterPath="$PROJECT_DIR$/mini-python/miniPython.g4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini-python/test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/mini-python/test.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +90,8 @@
       <workItem from="1648513610032" duration="2675000" />
       <workItem from="1648525467963" duration="8262000" />
       <workItem from="1648574358973" duration="1825000" />
-      <workItem from="1648606189655" duration="3030000" />
+      <workItem from="1648606189655" duration="3508000" />
+      <workItem from="1648611027763" duration="907000" />
     </task>
     <servers />
   </component>
@@ -120,6 +113,6 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Compiladores_E_Interpretes$main.coverage" NAME="main Coverage Results" MODIFIED="1648609097643" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mini-python" />
+    <SUITE FILE_PATH="coverage/Compiladores_E_Interpretes$main.coverage" NAME="main Coverage Results" MODIFIED="1648609378688" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mini-python" />
   </component>
 </project>
