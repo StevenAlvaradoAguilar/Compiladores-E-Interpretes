@@ -1,7 +1,5 @@
-import sys
-
-from antlr4.Recognizer import Recognizer
 from antlr4.error.ErrorListener import ErrorListener
+
 from generated.miniPythonParser import *
 
 

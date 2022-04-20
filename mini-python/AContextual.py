@@ -17,13 +17,13 @@ class AContextual(miniPythonVisitor):
     def hasErrors(self):
         return self.errorMsgs.__len__() > 0
 
-    def printErrors(self):
+    '''def printErrors(self):
         if self.hasErrors(): return "0 errors"
         builder = StringIO
         s = ""
         for _ in self.errorMsgs:
-            builder.app (s=( "%s\n", s ))
-        return builder.__str__()
+            builder. (s=( "%s\n", s )) #verificar
+        return builder.__str__()'''
 
     # Visit a parse tree produced by miniPythonParser#programMP.
     def visitProgramMP(self, ctx: miniPythonParser.ProgramMPContext):

@@ -7,7 +7,7 @@ from generated.miniPythonParser import *
 from antlr4 import *
 from antlr4.error.ErrorListener import *
 from MyErrorListener import *
-from AContextual import *
+from generated.miniPythonVisitor import *
 
 
 # Mostrar mensaje error proveniente del Lexer
@@ -57,17 +57,17 @@ if __name__ == "__main__":
 
         tree = parser.program()
 
-        mv = AContextual
+        mv = miniPythonVisitor()
         mv.visit(tree)
 
-        if errorListener.hasErrors() & mv.hasErrors():
+        '''if errorListener.hasErrors() & mv.hasErrors():
             print("Compilación Exitosa!!!")
         else:
             print("Compilación Fallida!!!")
             if errorListener.hasErrors():
                 print(errorListener.toString())
             if mv.hasErrors():
-                print(mv.printErrors())
+                print(mv.printErrors())'''
     except:
         e = RecognitionException
         print("No hay archivo")

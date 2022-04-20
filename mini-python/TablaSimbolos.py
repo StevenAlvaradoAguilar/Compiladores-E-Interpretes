@@ -3,29 +3,15 @@ from antlr4.ParserRuleContext import *
 
 class TablaSimbolos:
 
-    global tabla
-    tabla= [ ]
+    tabla = [ ]
 
-    global nivelActual
     nivelActual = int
 
     class Ident:
-        global tok
-        tok= miniPythonParser.Token
-        global nivel
-        miniPythonParser.nivel = int
-        global valor
-        miniPythonParser.valor = int
-        global params
-        miniPythonParser.params = [miniPythonParser.IdDeclarationContext]
-        global isMethod
-        miniPythonParser.isMethod = bool
-        global declCtx
-        miniPythonParser.declCtx = ParserRuleContext
 
-        def Ident(self, t, p, im, decl):
+        def __int__(self, t, p, im, decl):
             self.tok = t
-            self.nivel = nivelActual
+            self.nivel = TablaSimbolos.nivelActual
             self.valor = 0
             self.params = p
             self.isMethod = im
@@ -34,48 +20,44 @@ class TablaSimbolos:
         def setValue(self, v):
             self.valor = v
 
-
         def getNivel(self):
             return self.nivel
 
+    def __init__(self):
+        TablaSimbolos.tabla = []
+        TablaSimbolos.nivelActual = -1
 
-    class TablaSimbolos:
-        tabla = []
-        super().nivelActual=-1
-
-    id = Token
-    p = [miniPythonParser.IdDeclarationContext]
-    im = bool
-    decl = ParserRuleContext
     def insertar(self, id, p, im, decl):
         #no se puede insertar un elemento repetido en el mismo nivel
-        i = self.Ident
-        i = self.Ident(id,p,im,decl)
-        tabla.addFirst(i)
+        i = TablaSimbolos.Ident(id,p,im,decl)
+        self.tabla.append(i)
 
-    def buscar(self, "nombre"):
-        self.Ident = 0
-        temp = self.Ident
-        Object = id
-        for(id : tabla):
-            if (((self.Ident)id).tok.getText().equals("nombre")):
-                return ((self.Ident)id)
-        return temp
+    def buscar(self, nombre):
+        tablaCopy = self.tabla.copy()
+        for id1 in self.tablaCopy:
+            if id1.nombre == nombre:
+                return id1.nombre
+        return None
 
     def openScope(self):
-        self.nivelActual = nivelActual + 1
+        self.nivelActual = self.nivelActual + 1
 
     #Método lambda de tipo funcional
     def closeScope(self):
-        tabla.remove(n -> (self.Ident.nivel == nivelActual))
-        self.nivelActual = nivelActual - 1
+        n = object
+        x = lambda n: n.nivel == self.nivelActual
+        tablaCopy = self.tabla.copy()
+        # Iterar la tabla
+        for n in tablaCopy:
+            if x(n):
+                self.tabla.remove(n)
+        self.nivelActual = self.nivelActual - 1
 
-    class imprimir:
+    def imprimir(self):
         print("----- INICIO TABLA ------");
-        for _ in tabla:
-            s = Token
-            s = Token ((Ident) tabla.__getitem__(i).tok
-            print("Nombre: " + s.text + " - " + ((Ident) tabla.get(i)).nivel + " - " + ((Ident) tabla.get(i)).type)
+        tablaCopy = self.tabla.copy()
+        for i in tablaCopy:
+            print("Nombre: " + str(i.text) + " - " + str(i.nivelActual) + " - " + str(i.type))
             ''' if (s.getType() == 0) print("\tTipo: Indefinido");
             else if (s.getType() == 1) print("\tTipo: Integer\n");'''
 
