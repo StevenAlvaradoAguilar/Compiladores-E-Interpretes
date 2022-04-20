@@ -1,4 +1,4 @@
-# Generated from D:/Universidad/Compiladores_e_Interpretes/Compiladores-E-Interpretes/Compiladores-E-Interpretes/mini-python\miniPython.g4 by ANTLR 4.9.2
+# Generated from D:/Universidad/Compiladores_e_Interpretes/Compiladores-E-Interpretes/mini-python\miniPython.g4 by ANTLR 4.9.2
 # encoding: utf-8
 from antlr4 import *
 from io import StringIO
@@ -269,6 +269,20 @@ class miniPythonParser ( Parser ):
                 return self.getTypedRuleContext(miniPythonParser.StatementContext,i)
 
 
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterProgramMP" ):
+                listener.enterProgramMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitProgramMP" ):
+                listener.exitProgramMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitProgramMP" ):
+                return visitor.visitProgramMP(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
     def program(self):
@@ -350,6 +364,20 @@ class miniPythonParser ( Parser ):
         def expressionStatement(self):
             return self.getTypedRuleContext(miniPythonParser.ExpressionStatementContext,0)
 
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterStatementMP" ):
+                listener.enterStatementMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitStatementMP" ):
+                listener.exitStatementMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitStatementMP" ):
+                return visitor.visitStatementMP(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -458,6 +486,20 @@ class miniPythonParser ( Parser ):
             return self.getTypedRuleContext(miniPythonParser.SequenceContext,0)
 
 
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterDefStatementMP" ):
+                listener.enterDefStatementMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitDefStatementMP" ):
+                listener.exitDefStatementMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitDefStatementMP" ):
+                return visitor.visitDefStatementMP(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
     def defStatement(self):
@@ -518,6 +560,20 @@ class miniPythonParser ( Parser ):
         def moreArgs(self):
             return self.getTypedRuleContext(miniPythonParser.MoreArgsContext,0)
 
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterArgListMP" ):
+                listener.enterArgListMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitArgListMP" ):
+                listener.exitArgListMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitArgListMP" ):
+                return visitor.visitArgListMP(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -584,6 +640,20 @@ class miniPythonParser ( Parser ):
                 return self.getTokens(miniPythonParser.IDENTIFIER)
             else:
                 return self.getToken(miniPythonParser.IDENTIFIER, i)
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterMoreArgsMP" ):
+                listener.enterMoreArgsMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitMoreArgsMP" ):
+                listener.exitMoreArgsMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitMoreArgsMP" ):
+                return visitor.visitMoreArgsMP(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -657,6 +727,20 @@ class miniPythonParser ( Parser ):
 
         def ELSE(self):
             return self.getToken(miniPythonParser.ELSE, 0)
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterIfStatementMP" ):
+                listener.enterIfStatementMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitIfStatementMP" ):
+                listener.exitIfStatementMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitIfStatementMP" ):
+                return visitor.visitIfStatementMP(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -742,6 +826,20 @@ class miniPythonParser ( Parser ):
             return self.getTypedRuleContext(miniPythonParser.SequenceContext,0)
 
 
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterWhileStatementMP" ):
+                listener.enterWhileStatementMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitWhileStatementMP" ):
+                listener.exitWhileStatementMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitWhileStatementMP" ):
+                return visitor.visitWhileStatementMP(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
     def whileStatement(self):
@@ -807,6 +905,20 @@ class miniPythonParser ( Parser ):
             return self.getTypedRuleContext(miniPythonParser.SequenceContext,0)
 
 
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterForStatementMP" ):
+                listener.enterForStatementMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitForStatementMP" ):
+                listener.exitForStatementMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitForStatementMP" ):
+                return visitor.visitForStatementMP(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
     def forStatement(self):
@@ -868,6 +980,20 @@ class miniPythonParser ( Parser ):
         def NEWLINE(self):
             return self.getToken(miniPythonParser.NEWLINE, 0)
 
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterReturnStatementMP" ):
+                listener.enterReturnStatementMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitReturnStatementMP" ):
+                listener.exitReturnStatementMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitReturnStatementMP" ):
+                return visitor.visitReturnStatementMP(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
     def returnStatement(self):
@@ -926,6 +1052,20 @@ class miniPythonParser ( Parser ):
             return self.getToken(miniPythonParser.PDER, 0)
         def NEWLINE(self):
             return self.getToken(miniPythonParser.NEWLINE, 0)
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterPrintStatementMP" ):
+                listener.enterPrintStatementMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitPrintStatementMP" ):
+                listener.exitPrintStatementMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitPrintStatementMP" ):
+                return visitor.visitPrintStatementMP(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -991,6 +1131,20 @@ class miniPythonParser ( Parser ):
             return self.getToken(miniPythonParser.MASEQUAL, 0)
         def MENEQUAL(self):
             return self.getToken(miniPythonParser.MENEQUAL, 0)
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterAssignStatementMP" ):
+                listener.enterAssignStatementMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitAssignStatementMP" ):
+                listener.exitAssignStatementMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitAssignStatementMP" ):
+                return visitor.visitAssignStatementMP(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -1060,6 +1214,20 @@ class miniPythonParser ( Parser ):
         def NEWLINE(self):
             return self.getToken(miniPythonParser.NEWLINE, 0)
 
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterFunctionCallStatementMP" ):
+                listener.enterFunctionCallStatementMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitFunctionCallStatementMP" ):
+                listener.exitFunctionCallStatementMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitFunctionCallStatementMP" ):
+                return visitor.visitFunctionCallStatementMP(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
     def functionCallStatement(self):
@@ -1117,6 +1285,20 @@ class miniPythonParser ( Parser ):
         def NEWLINE(self):
             return self.getToken(miniPythonParser.NEWLINE, 0)
 
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterExpressionStatementMP" ):
+                listener.enterExpressionStatementMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitExpressionStatementMP" ):
+                listener.exitExpressionStatementMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitExpressionStatementMP" ):
+                return visitor.visitExpressionStatementMP(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
     def expressionStatement(self):
@@ -1169,6 +1351,20 @@ class miniPythonParser ( Parser ):
 
         def DEDENT(self):
             return self.getToken(miniPythonParser.DEDENT, 0)
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterSequenceMP" ):
+                listener.enterSequenceMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitSequenceMP" ):
+                listener.exitSequenceMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitSequenceMP" ):
+                return visitor.visitSequenceMP(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -1224,6 +1420,20 @@ class miniPythonParser ( Parser ):
                 return self.getTypedRuleContext(miniPythonParser.StatementContext,i)
 
 
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterMoreStatementsMP" ):
+                listener.enterMoreStatementsMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitMoreStatementsMP" ):
+                listener.exitMoreStatementsMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitMoreStatementsMP" ):
+                return visitor.visitMoreStatementsMP(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
     def moreStatements(self):
@@ -1272,6 +1482,20 @@ class miniPythonParser ( Parser ):
 
         def getRuleIndex(self):
             return miniPythonParser.RULE_expression
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterExpression" ):
+                listener.enterExpression(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitExpression" ):
+                listener.exitExpression(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitExpression" ):
+                return visitor.visitExpression(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -1360,6 +1584,20 @@ class miniPythonParser ( Parser ):
             else:
                 return self.getToken(miniPythonParser.EQUALEQUAL, i)
 
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterComparisonMP" ):
+                listener.enterComparisonMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitComparisonMP" ):
+                listener.exitComparisonMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitComparisonMP" ):
+                return visitor.visitComparisonMP(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
     def comparison(self):
@@ -1426,6 +1664,20 @@ class miniPythonParser ( Parser ):
             return self.getTypedRuleContext(miniPythonParser.AdditionFactorContext,0)
 
 
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterAdditionExpressionMP" ):
+                listener.enterAdditionExpressionMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitAdditionExpressionMP" ):
+                listener.exitAdditionExpressionMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitAdditionExpressionMP" ):
+                return visitor.visitAdditionExpressionMP(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
     def additionExpression(self):
@@ -1487,6 +1739,20 @@ class miniPythonParser ( Parser ):
                 return self.getTokens(miniPythonParser.MEN)
             else:
                 return self.getToken(miniPythonParser.MEN, i)
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterAdditionFactorMP" ):
+                listener.enterAdditionFactorMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitAdditionFactorMP" ):
+                listener.exitAdditionFactorMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitAdditionFactorMP" ):
+                return visitor.visitAdditionFactorMP(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -1554,6 +1820,20 @@ class miniPythonParser ( Parser ):
             return self.getTypedRuleContext(miniPythonParser.MultiplicationFactorContext,0)
 
 
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterMultiplicationExpressionMP" ):
+                listener.enterMultiplicationExpressionMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitMultiplicationExpressionMP" ):
+                listener.exitMultiplicationExpressionMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitMultiplicationExpressionMP" ):
+                return visitor.visitMultiplicationExpressionMP(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
     def multiplicationExpression(self):
@@ -1615,6 +1895,20 @@ class miniPythonParser ( Parser ):
                 return self.getTokens(miniPythonParser.DIV)
             else:
                 return self.getToken(miniPythonParser.DIV, i)
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterMultiplicationFactorMP" ):
+                listener.enterMultiplicationFactorMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitMultiplicationFactorMP" ):
+                listener.exitMultiplicationFactorMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitMultiplicationFactorMP" ):
+                return visitor.visitMultiplicationFactorMP(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -1681,6 +1975,20 @@ class miniPythonParser ( Parser ):
         def elementAccess(self):
             return self.getTypedRuleContext(miniPythonParser.ElementAccessContext,0)
 
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterElementExpressionMP" ):
+                listener.enterElementExpressionMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitElementExpressionMP" ):
+                listener.exitElementExpressionMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitElementExpressionMP" ):
+                return visitor.visitElementExpressionMP(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -1756,6 +2064,20 @@ class miniPythonParser ( Parser ):
             else:
                 return self.getToken(miniPythonParser.CDER, i)
 
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterElementAccessMP" ):
+                listener.enterElementAccessMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitElementAccessMP" ):
+                listener.exitElementAccessMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitElementAccessMP" ):
+                return visitor.visitElementAccessMP(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
     def elementAccess(self):
@@ -1820,6 +2142,20 @@ class miniPythonParser ( Parser ):
         def moreExpressions(self):
             return self.getTypedRuleContext(miniPythonParser.MoreExpressionsContext,0)
 
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterExpressionListMP" ):
+                listener.enterExpressionListMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitExpressionListMP" ):
+                listener.exitExpressionListMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitExpressionListMP" ):
+                return visitor.visitExpressionListMP(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -1887,6 +2223,20 @@ class miniPythonParser ( Parser ):
             else:
                 return self.getTypedRuleContext(miniPythonParser.ExpressionContext,i)
 
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterMoreExpressionsMP" ):
+                listener.enterMoreExpressionsMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitMoreExpressionsMP" ):
+                listener.exitMoreExpressionsMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitMoreExpressionsMP" ):
+                return visitor.visitMoreExpressionsMP(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -1969,6 +2319,20 @@ class miniPythonParser ( Parser ):
 
         def MEN(self):
             return self.getToken(miniPythonParser.MEN, 0)
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterPrimitiveExpressionMP" ):
+                listener.enterPrimitiveExpressionMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitPrimitiveExpressionMP" ):
+                listener.exitPrimitiveExpressionMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitPrimitiveExpressionMP" ):
+                return visitor.visitPrimitiveExpressionMP(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -2105,6 +2469,20 @@ class miniPythonParser ( Parser ):
 
         def CDER(self):
             return self.getToken(miniPythonParser.CDER, 0)
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterListExpressionMP" ):
+                listener.enterListExpressionMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitListExpressionMP" ):
+                listener.exitListExpressionMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitListExpressionMP" ):
+                return visitor.visitListExpressionMP(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 

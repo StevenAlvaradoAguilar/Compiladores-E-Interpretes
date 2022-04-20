@@ -104,13 +104,13 @@ PRINT : 'print';
 INTEGER : DIGITNOTZERO DIGIT* | '0';
 IDENTIFIER : LETTER (LETTER | DIGIT)*;
 
-STRING :  '\'' (LETTER | DIGIT | SIMBOLS)* '\'' | ('"' (LETTER |DIGIT | SIMBOLS)* '"');
+STRING :  '\'' (LETTER | DIGIT | SIMBOLS | SPECIALSIMBOLS)* '\'' | ('"' (LETTER |DIGIT | SIMBOLS | SPECIALSIMBOLS)* '"');
 FLOAT : ((DIGITNOTZERO | '0' ) '.' (DIGIT)+ )| (DIGITNOTZERO (DIGIT)+ '.' DIGIT+);
-CHARCONTS : '\'' ((LETTER | DIGIT | SIMBOLS) | ) '\'';
+CHARCONTS : '\'' ((LETTER | DIGIT | SIMBOLS | SPECIALSIMBOLS) | ) '\'';
 
 //COMENTARIOS
 COMENTLINEA : ('#' ~[\r\n]* NEWLINE)-> skip;
-COMENTMULTILINEA : ('"""' .*? '"""' NEWLINE)-> skip;
+COMENTMULTILINEA : ('"""' .+? '"""' NEWLINE)-> skip;
 
 fragment DIGIT : [0-9];
 fragment LETTER : [a-z] | [A-Z] | '_';
@@ -118,6 +118,7 @@ fragment DIGITNOTZERO : [1-9];
 fragment SIMBOLS : COMA | PyCOMA | ASIGN | PIZQ | PDER | CIZQ | CDER | VIR | DOSPUNT | MAS | MULT | ' '|
 MEN | DIV | POT | MOD | MENQUE | MAYQUE | MENQUEEQUAL | MAYQUEEQUAL | EQUALEQUAL | ASIGN | MASEQUAL | MENEQUAL |
 MULTEQUAL | DIVEQUAL;
+fragment SPECIALSIMBOLS : '~' | '!' | '#' | '$' | '^' | '&' | '_' | '=' | '?';
 
 NEWLINE: ('\r'? '\n' (' ' | '\t') *); //For tabs just switch out ' '* with '\t'*
 
