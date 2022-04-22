@@ -1,9 +1,9 @@
 from generated.miniPythonParser import *
 from antlr4.ParserRuleContext import *
 
-class TablaSimbolos:
 
-    tabla = [ ]
+class TablaSimbolos:
+    tabla = []
 
     nivelActual = int
 
@@ -28,8 +28,8 @@ class TablaSimbolos:
         TablaSimbolos.nivelActual = -1
 
     def insertar(self, id, p, im, decl):
-        #no se puede insertar un elemento repetido en el mismo nivel
-        i = TablaSimbolos.Ident(id,p,im,decl)
+        # no se puede insertar un elemento repetido en el mismo nivel
+        i = TablaSimbolos.Ident(id, p, im, decl)
         self.tabla.append(i)
 
     def buscar(self, nombre):
@@ -42,9 +42,8 @@ class TablaSimbolos:
     def openScope(self):
         self.nivelActual = self.nivelActual + 1
 
-    #Método lambda de tipo funcional
+    # Método lambda de tipo funcional
     def closeScope(self):
-        n = object
         x = lambda n: n.nivel == self.nivelActual
         tablaCopy = self.tabla.copy()
         # Iterar la tabla
@@ -54,10 +53,10 @@ class TablaSimbolos:
         self.nivelActual = self.nivelActual - 1
 
     def imprimir(self):
-        print("----- INICIO TABLA ------");
+        print("----- INICIO TABLA ------")
         tablaCopy = self.tabla.copy()
         for i in tablaCopy:
-            print("Nombre: " + str(i.text) + " - " + str(i.nivelActual) + " - " + str(i.type))
+            print("Nombre: " + str(i.text) + " - " + str(i.nivelActual))
             ''' if (s.getType() == 0) print("\tTipo: Indefinido");
             else if (s.getType() == 1) print("\tTipo: Integer\n");'''
 

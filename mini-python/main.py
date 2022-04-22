@@ -3,11 +3,8 @@ import sys
 sys.path.append('./generated')
 
 from generated.miniPythonLexer import *
-from generated.miniPythonParser import *
-from antlr4 import *
-from antlr4.error.ErrorListener import *
 from MyErrorListener import *
-from generated.miniPythonVisitor import *
+from AContextual import *
 
 
 # Mostrar mensaje error proveniente del Lexer
@@ -39,6 +36,7 @@ class errorParser(ErrorListener):
 if __name__ == "__main__":
     input = FileStream('test.txt')
     lexer = miniPythonLexer(input)
+
     lexer._listeners = [errorLexer()]
     stream = CommonTokenStream(lexer)
     parser = miniPythonParser(stream)
@@ -57,18 +55,18 @@ if __name__ == "__main__":
 
         tree = parser.program()
 
-        mv = miniPythonVisitor()
+        mv = AContextual()
         mv.visit(tree)
 
-        '''if errorListener.hasErrors() & mv.hasErrors():
+        if not (errorListener.hasErrors() and mv.hasErrors()):
             print("Compilación Exitosa!!!")
         else:
             print("Compilación Fallida!!!")
             if errorListener.hasErrors():
-                print(errorListener.toString())
-            if mv.hasErrors():
-                print(mv.printErrors())'''
-    except:
-        e = RecognitionException
+                print(errorListener.__str__())
+            if not mv.hasErrors():
+                print(mv.printErrors())
+    except RecognitionException:
         print("No hay archivo")
-        e.with_traceback()
+        # print(e.with_traceback())
+        var = RecognitionException.__traceback__

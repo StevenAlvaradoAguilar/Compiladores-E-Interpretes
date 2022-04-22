@@ -118,7 +118,7 @@ fragment DIGITNOTZERO : [1-9];
 fragment SIMBOLS : COMA | PyCOMA | ASIGN | PIZQ | PDER | CIZQ | CDER | VIR | DOSPUNT | MAS | MULT | ' '|
 MEN | DIV | POT | MOD | MENQUE | MAYQUE | MENQUEEQUAL | MAYQUEEQUAL | EQUALEQUAL | ASIGN | MASEQUAL | MENEQUAL |
 MULTEQUAL | DIVEQUAL;
-fragment SPECIALSIMBOLS : '~' | '!' | '#' | '$' | '^' | '&' | '_' | '=' | '?';
+fragment SPECIALSIMBOLS : '!' | '#' | '$' | '^' | '&' | '_' | '?' | '%' | '`' | '@' | '¿' | 'ñ';
 
 NEWLINE: ('\r'? '\n' (' ' | '\t') *); //For tabs just switch out ' '* with '\t'*
 

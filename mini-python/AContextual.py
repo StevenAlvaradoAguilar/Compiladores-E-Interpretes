@@ -1,29 +1,30 @@
 from generated.miniPythonVisitor import *
-from generated.miniPythonParser import *
 from TablaSimbolos import *
+# Importing the StringIO module.
+from io import StringIO
 
 
 class AContextual(miniPythonVisitor):
-    TablaSimbolos = 0
+    TablaSimbolos = None
     laTabla = TablaSimbolos
 
-    errorMsgs = []
+    errorMsgs = [""]
 
-    def AContextual(self):
-        self.errorMsgs = []
-        self.laTabla = TablaSimbolos
+    def __init__(self):
+        self.errorMsgs = [""]
+        self.laTabla = TablaSimbolos()
         self.laTabla.openScope()
 
     def hasErrors(self):
         return self.errorMsgs.__len__() > 0
 
-    '''def printErrors(self):
-        if self.hasErrors(): return "0 errors"
+    def printErrors(self):
+        if not self.hasErrors():
+            return "0 errors"
         builder = StringIO
-        s = ""
-        for _ in self.errorMsgs:
-            builder. (s=( "%s\n", s )) #verificar
-        return builder.__str__()'''
+        for s in self.errorMsgs:
+            builder.writable("%s\n", s)  # verificar
+        return builder.__str__(self)
 
     # Visit a parse tree produced by miniPythonParser#programMP.
     def visitProgramMP(self, ctx: miniPythonParser.ProgramMPContext):
@@ -132,5 +133,3 @@ class AContextual(miniPythonVisitor):
     # Visit a parse tree produced by miniPythonParser#listExpressionMP.
     def visitListExpressionMP(self, ctx: miniPythonParser.ListExpressionMPContext):
         return super().visitListExpressionMP(ctx)
-
-    del miniPythonParser
