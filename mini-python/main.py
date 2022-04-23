@@ -1,9 +1,10 @@
 import sys
 
+from antlr4.error.ErrorListener import ErrorListener
+
 sys.path.append('./generated')
 
 from generated.miniPythonLexer import *
-from MyErrorListener import *
 from AContextual import *
 
 
@@ -47,18 +48,15 @@ if __name__ == "__main__":
         parser = miniPythonParser(tokens)
 
         # manejo de errores
-        errorListener = MyErrorListener()
         lexer.removeErrorListeners()
-        lexer.addErrorListener(errorListener)
         parser.removeErrorListeners()
-        parser.addErrorListener(errorListener)
 
         tree = parser.program()
 
         mv = AContextual()
         mv.visit(tree)
 
-        if not (errorListener.hasErrors() and mv.hasErrors()):
+        '''if not (errorListener.hasErrors() and mv.hasErrors()):
             print("Compilación Exitosa!!!")
         else:
             print("Compilación Fallida!!!")
@@ -66,6 +64,8 @@ if __name__ == "__main__":
                 print(errorListener.__str__())
             if not mv.hasErrors():
                 print(mv.printErrors())
+        '''
+
     except RecognitionException:
         print("No hay archivo")
         # print(e.with_traceback())
