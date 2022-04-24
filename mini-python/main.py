@@ -35,17 +35,14 @@ class errorParser(ErrorListener):
 
 # Main para errores.
 if __name__ == "__main__":
-    input = FileStream('test.txt')
-    lexer = miniPythonLexer(input)
-
-    lexer._listeners = [errorLexer()]
-    stream = CommonTokenStream(lexer)
-    parser = miniPythonParser(stream)
-    parser._listeners = [errorParser()]
 
     try:
+        input = FileStream('test.txt')
+        lexer = miniPythonLexer(input)
+        lexer._listeners = [errorLexer()]
         tokens = CommonTokenStream(lexer)
         parser = miniPythonParser(tokens)
+        parser._listeners = [errorParser()]
 
         # manejo de errores
         lexer.removeErrorListeners()
@@ -56,15 +53,14 @@ if __name__ == "__main__":
         mv = AContextual()
         mv.visit(tree)
 
-        '''if not (errorListener.hasErrors() and mv.hasErrors()):
+        '''if not (errorLexer.hasErrors() and mv.hasErrors()):
             print("Compilación Exitosa!!!")
         else:
             print("Compilación Fallida!!!")
-            if errorListener.hasErrors():
-                print(errorListener.__str__())
+            if errorLexer.hasErrors():
+                print(errorLexer.__str__())
             if not mv.hasErrors():
-                print(mv.printErrors())
-        '''
+                print(mv.printErrors())'''
 
     except RecognitionException:
         print("No hay archivo")

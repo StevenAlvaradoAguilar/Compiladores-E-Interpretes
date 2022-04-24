@@ -1,9 +1,6 @@
-from generated.miniPythonParser import *
-from antlr4.ParserRuleContext import *
-
-
 class TablaSimbolos:
     tabla = []
+    tablaCopy = tabla.copy()
 
     nivelActual = int
 
@@ -33,7 +30,6 @@ class TablaSimbolos:
         self.tabla.append(i)
 
     def buscar(self, nombre):
-        tablaCopy = self.tabla.copy()
         for id1 in self.tablaCopy:
             if id1.nombre == nombre:
                 return id1.nombre
