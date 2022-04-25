@@ -11,23 +11,21 @@ class AContextual(miniPythonVisitor):
     TablaSimbolos = None
     laTabla = TablaSimbolos
 
-    errorMsgs = [""]
+    errorMsgs = []
 
     def __init__(self):
-        self.errorMsgs = [""]
+        self.errorMsgs = []
         self.laTabla = TablaSimbolos()
         self.laTabla.openScope()
 
     def hasErrors(self):
-        return self.errorMsgs.__len__() > 0
+        return len(self.errorMsgs) > 0
 
     def printErrors(self):
         if not self.hasErrors():
             return "0 errors"
-        builder = StringIO
         for s in self.errorMsgs:
-            builder.writable("%s\n", s)  # verificar
-        return builder.__str__(self)
+            print("%s\n", s)  # verificar
 
     # Visit a parse tree produced by miniPythonParser#programMP.
     def visitProgramMP(self, ctx: miniPythonParser.ProgramMPContext):
@@ -41,15 +39,41 @@ class AContextual(miniPythonVisitor):
 
     # Visit a parse tree produced by miniPythonParser#defStatementMP.
     def visitDefStatementMP(self, ctx: miniPythonParser.DefStatementMPContext):
-        print(ctx.IDENTIFIER().getText())
-        #self.TablaSimbolos.insertar()
-        self.visit(ctx.argList())
-        self.visit(ctx.sequence())
+        #print(ctx.IDENTIFIER().getText())
+        m = TablaSimbolos.Ident
+        m = self.laTabla.buscar(ctx.IDENTIFIER().getText())
+        if m is not None:
+            if m.isMethod:
+                argList = []
+                argList = self.visit(ctx.argList())
+                if len(m.Ident.params) is not len(argList):
+                    print("Cantidad de parámetros no coincide con la declaración")
+            else:
+                print("El identificador no es un método")
+        else:
+            print("El método no ha sido declarado")
+
+        #self.visit(ctx.argList())
+        #self.visit(ctx.sequence())
         return
         # return super().visitDefStatementMP(ctx)
 
     # Visit a parse tree produced by miniPythonParser#argListMP.
     def visitArgListMP(self, ctx: miniPythonParser.ArgListMPContext):
+        print(ctx.moreArgs())
+        n = TablaSimbolos.Ident
+        n = self.laTabla.buscar(ctx.IDENTIFIER().getText())
+        if n is not None:
+            if n.isMethod:
+                moreArgs = []
+                moreArgs = self.visit(ctx.moreArgs())
+                if len(n.Ident.params) is not len(moreArgs):
+                    print("Cantidad de parámetros no coincide con la declaración")
+            else:
+                print("El identificador no es un método")
+        else:
+            print("El método no ha sido declarado")
+
         return self.visitChildren(ctx)
 
     # Visit a parse tree produced by miniPythonParser#moreArgsMP.
@@ -78,6 +102,9 @@ class AContextual(miniPythonVisitor):
 
     # Visit a parse tree produced by miniPythonParser#assignStatementMP.
     def visitAssignStatementMP(self, ctx: miniPythonParser.AssignStatementMPContext):
+        '''print(ctx.expression())
+        self.laTabla.insertar(ctx.IDENTIFIER().getSymbol(), None, False, ctx);
+        '''
         return self.visitChildren(ctx)
 
     # Visit a parse tree produced by miniPythonParser#functionCallStatementMP.
@@ -97,7 +124,7 @@ class AContextual(miniPythonVisitor):
         return self.visitChildren(ctx)
 
     # Visit a parse tree produced by miniPythonParser#expression.
-    def visitExpressionMP(self, ctx: miniPythonParser.ExpressionContext):
+    def visitExpression(self, ctx: miniPythonParser.ExpressionContext):
         return self.visitChildren(ctx)
 
     # Visit a parse tree produced by miniPythonParser#comparisonMP.

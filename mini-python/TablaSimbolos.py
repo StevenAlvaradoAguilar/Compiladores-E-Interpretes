@@ -26,6 +26,7 @@ class TablaSimbolos:
 
     def insertar(self, id, p, im, decl):
         # no se puede insertar un elemento repetido en el mismo nivel
+        # i = self.Ident
         i = TablaSimbolos.Ident(id, p, im, decl)
         self.tabla.append(i)
 

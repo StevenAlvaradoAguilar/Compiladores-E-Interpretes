@@ -1,8 +1,9 @@
+import sys
+
+sys.path.append('./generated')
+
 from AContextual import *
 from MyErrorListener import *
-
-import sys
-sys.path.append('./generated')
 
 # Main para errores.
 if __name__ == "__main__":

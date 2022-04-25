@@ -144,7 +144,7 @@ class miniPythonListener(ParseTreeListener):
 
 
     # Enter a parse tree produced by miniPythonParser#expression.
-    def enterExpressionMP(self, ctx:miniPythonParser.ExpressionContext):
+    def enterExpression(self, ctx:miniPythonParser.ExpressionContext):
         pass
 
     # Exit a parse tree produced by miniPythonParser#expression.

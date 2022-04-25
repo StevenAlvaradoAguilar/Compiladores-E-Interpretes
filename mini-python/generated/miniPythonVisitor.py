@@ -86,7 +86,7 @@ class miniPythonVisitor(ParseTreeVisitor):
 
 
     # Visit a parse tree produced by miniPythonParser#expression.
-    def visitExpressionMP(self, ctx:miniPythonParser.ExpressionContext):
+    def visitExpression(self, ctx:miniPythonParser.ExpressionContext):
         return self.visitChildren(ctx)
 
 
