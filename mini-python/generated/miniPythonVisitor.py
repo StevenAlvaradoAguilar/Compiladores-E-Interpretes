@@ -37,7 +37,6 @@ class miniPythonVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by miniPythonParser#ifStatementMP.
     def visitIfStatementMP(self, ctx:miniPythonParser.IfStatementMPContext):
-        print("Funcion If")
         return self.visitChildren(ctx)
 
 
@@ -87,7 +86,7 @@ class miniPythonVisitor(ParseTreeVisitor):
 
 
     # Visit a parse tree produced by miniPythonParser#expression.
-    def visitExpression(self, ctx:miniPythonParser.ExpressionContext):
+    def visitExpressionMP(self, ctx:miniPythonParser.ExpressionContext):
         return self.visitChildren(ctx)
 
 

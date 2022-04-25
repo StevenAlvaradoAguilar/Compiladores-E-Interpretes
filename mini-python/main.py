@@ -1,66 +1,40 @@
-import sys
-
-from antlr4.error.ErrorListener import ErrorListener
-
-sys.path.append('./generated')
-
-from generated.miniPythonLexer import *
 from AContextual import *
+from MyErrorListener import *
 
-
-# Mostrar mensaje error proveniente del Lexer
-class errorLexer(ErrorListener):
-
-    def __init__(self):
-        super(errorLexer, self).__init__()
-
-    def syntaxError(self, recognizer, offendingSymbol, line, column, msg, e):
-        print("ERROR de sintaxis en Lexer: ", "En la linea ", line, "columna ", column,
-              "se reporta el siguiente error: ", msg)
-        sys.exit()
-
-
-# Mostrar Mensaje Error proveniente del Parser
-class errorParser(ErrorListener):
-
-    def __init__(self):
-        super(errorParser, self).__init__()
-
-    def syntaxError(self, recognizer, offendingSymbol, line, column, msg, e):
-        print("ERROR de sintaxis en Parser: ", "En la linea ", line, "columna ", column,
-              "se reporta el siguiente error: ", msg)
-        # raise Exception("Oh no!!")
-        sys.exit()
-
+import sys
+sys.path.append('./generated')
 
 # Main para errores.
 if __name__ == "__main__":
+    input = FileStream('test.txt')
+    lexer = miniPythonLexer(input)
 
     try:
-        input = FileStream('test.txt')
-        lexer = miniPythonLexer(input)
-        lexer._listeners = [errorLexer()]
         tokens = CommonTokenStream(lexer)
         parser = miniPythonParser(tokens)
-        parser._listeners = [errorParser()]
+
+        parser._listeners = [MyErrorListener()]
 
         # manejo de errores
+        errorListener = MyErrorListener()
         lexer.removeErrorListeners()
+        lexer.addErrorListener(errorListener)
         parser.removeErrorListeners()
+        parser.addErrorListener(errorListener)
 
         tree = parser.program()
 
         mv = AContextual()
         mv.visit(tree)
 
-        '''if not (errorLexer.hasErrors() and mv.hasErrors()):
+        if not (errorListener.hasError() and mv.hasErrors()):
             print("Compilación Exitosa!!!")
         else:
             print("Compilación Fallida!!!")
-            if errorLexer.hasErrors():
-                print(errorLexer.__str__())
+            if errorListener.hasError():
+                errorListener.toString()
             if not mv.hasErrors():
-                print(mv.printErrors())'''
+                mv.printErrors()
 
     except RecognitionException:
         print("No hay archivo")

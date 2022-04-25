@@ -41,7 +41,7 @@ functionCallStatement : primitiveExpression PIZQ expressionList PDER NEWLINE    
 expressionStatement : expressionList NEWLINE                                                       #expressionStatementMP;
 sequence : INDENT moreStatements DEDENT                                                            #sequenceMP;
 moreStatements : (statement)+                                                                      #moreStatementsMP;
-expression : additionExpression comparison;
+expression : additionExpression comparison                                                         #expressionMP;
 comparison : ((MENQUE | MAYQUE | MENQUEEQUAL | MAYQUEEQUAL | MULTEQUAL | DIVEQUAL
 | EQUALEQUAL) additionExpression)*                                                                 #comparisonMP;
 additionExpression : multiplicationExpression additionFactor                                       #additionExpressionMP;
@@ -83,6 +83,7 @@ MASEQUAL : '+=';
 MENEQUAL : '-=';
 MULTEQUAL : '*=';
 DIVEQUAL : '/=';
+HASH  : '\n';
 
 //palabras reservadas
 IF : 'if';
@@ -117,7 +118,7 @@ fragment LETTER : [a-z] | [A-Z] | '_';
 fragment DIGITNOTZERO : [1-9];
 fragment SIMBOLS : COMA | PyCOMA | ASIGN | PIZQ | PDER | CIZQ | CDER | VIR | DOSPUNT | MAS | MULT | ' '|
 MEN | DIV | POT | MOD | MENQUE | MAYQUE | MENQUEEQUAL | MAYQUEEQUAL | EQUALEQUAL | ASIGN | MASEQUAL | MENEQUAL |
-MULTEQUAL | DIVEQUAL;
+MULTEQUAL | DIVEQUAL | HASH;
 fragment SPECIALSIMBOLS : '!' | '#' | '$' | '^' | '&' | '_' | '?' | '%' | '`' | '@' | '¿' | 'ñ';
 
 NEWLINE: ('\r'? '\n' (' ' | '\t') *); //For tabs just switch out ' '* with '\t'*

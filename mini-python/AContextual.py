@@ -7,6 +7,7 @@ from generated.miniPythonVisitor import *
 
 
 class AContextual(miniPythonVisitor):
+
     TablaSimbolos = None
     laTabla = TablaSimbolos
 
@@ -20,41 +21,31 @@ class AContextual(miniPythonVisitor):
     def hasErrors(self):
         return self.errorMsgs.__len__() > 0
 
-    '''def printErrors(self):
+    def printErrors(self):
         if not self.hasErrors():
             return "0 errors"
         builder = StringIO
         for s in self.errorMsgs:
             builder.writable("%s\n", s)  # verificar
-        return builder.__str__(self)'''
+        return builder.__str__(self)
 
     # Visit a parse tree produced by miniPythonParser#programMP.
     def visitProgramMP(self, ctx: miniPythonParser.ProgramMPContext):
-        self.visit(ctx.statement())
-        '''for x in ctx.statement():
-            self.visit(ctx.statement(x))'''
-
         return self.visitChildren(ctx)
         # return super().visitProgramMP(ctx)
 
     # Visit a parse tree produced by miniPythonParser#statementMP.
     def visitStatementMP(self, ctx: miniPythonParser.StatementMPContext):
-        self.visit(ctx.defStatement())
-        self.visit(ctx.ifStatement())
-        self.visit(ctx.returnStatement())
-        self.visit(ctx.printStatement())
-        self.visit(ctx.whileStatement())
-        self.visit(ctx.forStatement())
-        self.visit(ctx.assignStatement())
-        self.visit(ctx.functionCallStatement())
-        self.visit(ctx.expressionStatement())
+        return self.visitChildren(ctx)
         # return super().visitStatementMP(ctx)
 
     # Visit a parse tree produced by miniPythonParser#defStatementMP.
     def visitDefStatementMP(self, ctx: miniPythonParser.DefStatementMPContext):
+        print(ctx.IDENTIFIER().getText())
+        #self.TablaSimbolos.insertar()
         self.visit(ctx.argList())
         self.visit(ctx.sequence())
-        return self.visitChildren(ctx)
+        return
         # return super().visitDefStatementMP(ctx)
 
     # Visit a parse tree produced by miniPythonParser#argListMP.
@@ -106,7 +97,7 @@ class AContextual(miniPythonVisitor):
         return self.visitChildren(ctx)
 
     # Visit a parse tree produced by miniPythonParser#expression.
-    def visitExpression(self, ctx: miniPythonParser.ExpressionContext):
+    def visitExpressionMP(self, ctx: miniPythonParser.ExpressionContext):
         return self.visitChildren(ctx)
 
     # Visit a parse tree produced by miniPythonParser#comparisonMP.
