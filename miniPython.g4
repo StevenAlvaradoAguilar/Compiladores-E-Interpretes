@@ -11,9 +11,12 @@ class MyCoolDenter(DenterHelper):
     def __init__(self, lexer, nl_token, indent_token, dedent_token, ignore_eof):
         super().__init__(nl_token, indent_token, dedent_token, ignore_eof)
         self.lexer: miniPythonLexer = lexer
+
     def pull_token(self):
         return super(miniPythonLexer, self.lexer).nextToken()
+
 denter = None
+
 def nextToken(self):
     if not self.denter:
         self.denter = self.MyCoolDenter(self, self.NEWLINE, miniPythonParser.INDENT, miniPythonParser.DEDENT, False)
@@ -22,19 +25,13 @@ def nextToken(self):
 
 //el DEDENT debe llevar antes un NEWLINE
 program : statement (statement)*                                                                   #programMP;
-statement : defStatement                                                                           #defStat
-            | ifStatement                                                                          #ifStat
-            | returnStatement                                                                      #returnStat
-            | printStatement                                                                       #printStat
-            | whileStatement                                                                       #whileStat
-            | forStatement                                                                         #forStat
-            | assignStatement                                                                      #assignStat
-            | functionCallStatement                                                                #functionCallStat
-            | expressionStatement                                                                  #expressionSt;
+statement : (defStatement | ifStatement | returnStatement | printStatement | whileStatement
+            | forStatement | assignStatement | functionCallStatement | expressionStatement)        #statementMP;
 defStatement : DEF IDENTIFIER PIZQ argList PDER DOSPUNT sequence                                   #defStatementMP;
 argList : (IDENTIFIER moreArgs | )                                                                 #argListMP;
 moreArgs : (COMA IDENTIFIER)*                                                                      #moreArgsMP;
-ifStatement : IF expression DOSPUNT sequence ELSE DOSPUNT sequence                                 #ifStatementMP;
+ifStatement : (IF expression DOSPUNT sequence ELSE DOSPUNT sequence |
+              IF expression DOSPUNT sequence)                                                      #ifStatementMP;
 whileStatement : WHILE expression DOSPUNT sequence                                                 #whileStatementMP;
 forStatement : FOR expression IN expressionList DOSPUNT sequence                                   #forStatementMP;
 returnStatement : RETURN expression NEWLINE                                                        #returnStatementMP;
@@ -55,14 +52,8 @@ elementExpression : (primitiveExpression elementAccess | primitiveExpression)   
 elementAccess : ( CIZQ expression CDER )+                                                          #elementAccessMP;
 expressionList : (expression moreExpressions | )                                                   #expressionListMP;
 moreExpressions : (COMA expression)*                                                               #moreExpressionsMP;
-primitiveExpression : MEN? INTEGER                                                                 #integersMP
-                      | MEN? FLOAT                                                                 #floatsMP
-                      | CHARCONTS                                                                  #chartsMP
-                      | STRING                                                                     #stringsMP
-                      | IDENTIFIER ( PIZQ expressionList PDER | )                                  #identifierMP
-                      | PIZQ expression PDER                                                       #parenthesisExpressionMP
-                      | listExpression                                                             #listExpMP
-                      | LEN PIZQ expression PDER                                                   #primitiveExpressionMP;
+primitiveExpression : (MEN? INTEGER | MEN? FLOAT | CHARCONTS | STRING | IDENTIFIER ( PIZQ
+   expressionList PDER | ) | PIZQ expression PDER | listExpression | LEN PIZQ expression PDER)     #primitiveExpressionMP;
 listExpression : CIZQ expressionList CDER                                                          #listExpressionMP;
 
 
@@ -128,7 +119,7 @@ fragment DIGITNOTZERO : [1-9];
 fragment SIMBOLS : COMA | PyCOMA | ASIGN | PIZQ | PDER | CIZQ | CDER | VIR | DOSPUNT | MAS | MULT | ' '|
 MEN | DIV | POT | MOD | MENQUE | MAYQUE | MENQUEEQUAL | MAYQUEEQUAL | EQUALEQUAL | ASIGN | MASEQUAL | MENEQUAL |
 MULTEQUAL | DIVEQUAL | HASH;
-fragment SPECIALSIMBOLS : '!' | '#' | '$' | '^' | '&' | '_' | '?' | '%' | '`' | '@' | '¿';
+fragment SPECIALSIMBOLS : '!' | '#' | '$' | '^' | '&' | '_' | '?' | '%' | '`' | '@' | '¿' | 'ñ';
 
 NEWLINE: ('\r'? '\n' (' ' | '\t') *); //For tabs just switch out ' '* with '\t'*
 
