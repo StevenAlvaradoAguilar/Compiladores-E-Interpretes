@@ -1,39 +1,35 @@
 class TablaSimbolos:
-    tabla = []
-    tablaCopy = tabla.copy()
 
-    nivelActual = int
+    tabla = []
+
+    nivelActual = 0
 
     class Ident:
 
-        def __int__(self, t, p, im, decl):
-            self.tok = t
+        def __init__(self, identifier, params, isMethod, decl):
+            self.identifier = identifier
             self.nivel = TablaSimbolos.nivelActual
-            self.valor = 0
-            self.params = p
-            self.isMethod = im
+            self.params = params
+            self.isMethod = isMethod
             self.declCtx = decl
-
-        def setValue(self, v):
-            self.valor = v
 
         def getNivel(self):
             return self.nivel
 
     def __init__(self):
         TablaSimbolos.tabla = []
-        TablaSimbolos.nivelActual = -1
+        TablaSimbolos.nivelActual = - 1
 
-    def insertar(self, id, p, im, decl):
+    def insertar(self, identifier, params, isMethod, decl):
         # no se puede insertar un elemento repetido en el mismo nivel
-        # i = self.Ident
-        i = TablaSimbolos.Ident(id, p, im, decl)
+        i = TablaSimbolos.Ident(identifier, params, isMethod, decl)
         self.tabla.append(i)
 
     def buscar(self, nombre):
-        for id1 in self.tablaCopy:
-            if id1.nombre == nombre:
-                return id1.nombre
+        tablaCopy = self.tabla.copy()
+        for id1 in tablaCopy:
+            if str(id1.identifier) == str(nombre):
+                return id1
         return None
 
     def openScope(self):
@@ -53,7 +49,7 @@ class TablaSimbolos:
         print("----- INICIO TABLA ------")
         tablaCopy = self.tabla.copy()
         for i in tablaCopy:
-            print("Nombre: " + str(i.text) + " - " + str(i.nivelActual))
+            print("Nombre: " + i.identifier + " - " + i.nivel)
             ''' if (s.getType() == 0) print("\tTipo: Indefinido");
             else if (s.getType() == 1) print("\tTipo: Integer\n");'''
 

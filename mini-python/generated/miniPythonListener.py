@@ -1,4 +1,4 @@
-# Generated from D:/Universidad/Compiladores_e_Interpretes/Compiladores-E-Interpretes/mini-python\miniPython.g4 by ANTLR 4.10.1
+# Generated from D:/Universidad/Compiladores_e_Interpretes/Compiladores-E-Interpretes/mini-python\miniPython.g4 by ANTLR 4.9.2
 from antlr4 import *
 if __name__ is not None and "." in __name__:
     from .miniPythonParser import miniPythonParser
@@ -17,84 +17,12 @@ class miniPythonListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by miniPythonParser#defStat.
-    def enterDefStat(self, ctx:miniPythonParser.DefStatContext):
+    # Enter a parse tree produced by miniPythonParser#statementMP.
+    def enterStatementMP(self, ctx:miniPythonParser.StatementMPContext):
         pass
 
-    # Exit a parse tree produced by miniPythonParser#defStat.
-    def exitDefStat(self, ctx:miniPythonParser.DefStatContext):
-        pass
-
-
-    # Enter a parse tree produced by miniPythonParser#ifStat.
-    def enterIfStat(self, ctx:miniPythonParser.IfStatContext):
-        pass
-
-    # Exit a parse tree produced by miniPythonParser#ifStat.
-    def exitIfStat(self, ctx:miniPythonParser.IfStatContext):
-        pass
-
-
-    # Enter a parse tree produced by miniPythonParser#returnStat.
-    def enterReturnStat(self, ctx:miniPythonParser.ReturnStatContext):
-        pass
-
-    # Exit a parse tree produced by miniPythonParser#returnStat.
-    def exitReturnStat(self, ctx:miniPythonParser.ReturnStatContext):
-        pass
-
-
-    # Enter a parse tree produced by miniPythonParser#printStat.
-    def enterPrintStat(self, ctx:miniPythonParser.PrintStatContext):
-        pass
-
-    # Exit a parse tree produced by miniPythonParser#printStat.
-    def exitPrintStat(self, ctx:miniPythonParser.PrintStatContext):
-        pass
-
-
-    # Enter a parse tree produced by miniPythonParser#whileStat.
-    def enterWhileStat(self, ctx:miniPythonParser.WhileStatContext):
-        pass
-
-    # Exit a parse tree produced by miniPythonParser#whileStat.
-    def exitWhileStat(self, ctx:miniPythonParser.WhileStatContext):
-        pass
-
-
-    # Enter a parse tree produced by miniPythonParser#forStat.
-    def enterForStat(self, ctx:miniPythonParser.ForStatContext):
-        pass
-
-    # Exit a parse tree produced by miniPythonParser#forStat.
-    def exitForStat(self, ctx:miniPythonParser.ForStatContext):
-        pass
-
-
-    # Enter a parse tree produced by miniPythonParser#assignStat.
-    def enterAssignStat(self, ctx:miniPythonParser.AssignStatContext):
-        pass
-
-    # Exit a parse tree produced by miniPythonParser#assignStat.
-    def exitAssignStat(self, ctx:miniPythonParser.AssignStatContext):
-        pass
-
-
-    # Enter a parse tree produced by miniPythonParser#functionCallStat.
-    def enterFunctionCallStat(self, ctx:miniPythonParser.FunctionCallStatContext):
-        pass
-
-    # Exit a parse tree produced by miniPythonParser#functionCallStat.
-    def exitFunctionCallStat(self, ctx:miniPythonParser.FunctionCallStatContext):
-        pass
-
-
-    # Enter a parse tree produced by miniPythonParser#expressionSt.
-    def enterExpressionSt(self, ctx:miniPythonParser.ExpressionStContext):
-        pass
-
-    # Exit a parse tree produced by miniPythonParser#expressionSt.
-    def exitExpressionSt(self, ctx:miniPythonParser.ExpressionStContext):
+    # Exit a parse tree produced by miniPythonParser#statementMP.
+    def exitStatementMP(self, ctx:miniPythonParser.StatementMPContext):
         pass
 
 
@@ -215,12 +143,12 @@ class miniPythonListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by miniPythonParser#expressionMP.
-    def enterExpressionMP(self, ctx:miniPythonParser.ExpressionMPContext):
+    # Enter a parse tree produced by miniPythonParser#expression.
+    def enterExpression(self, ctx:miniPythonParser.ExpressionContext):
         pass
 
-    # Exit a parse tree produced by miniPythonParser#expressionMP.
-    def exitExpressionMP(self, ctx:miniPythonParser.ExpressionMPContext):
+    # Exit a parse tree produced by miniPythonParser#expression.
+    def exitExpression(self, ctx:miniPythonParser.ExpressionContext):
         pass
 
 
@@ -302,69 +230,6 @@ class miniPythonListener(ParseTreeListener):
 
     # Exit a parse tree produced by miniPythonParser#moreExpressionsMP.
     def exitMoreExpressionsMP(self, ctx:miniPythonParser.MoreExpressionsMPContext):
-        pass
-
-
-    # Enter a parse tree produced by miniPythonParser#integersMP.
-    def enterIntegersMP(self, ctx:miniPythonParser.IntegersMPContext):
-        pass
-
-    # Exit a parse tree produced by miniPythonParser#integersMP.
-    def exitIntegersMP(self, ctx:miniPythonParser.IntegersMPContext):
-        pass
-
-
-    # Enter a parse tree produced by miniPythonParser#floatsMP.
-    def enterFloatsMP(self, ctx:miniPythonParser.FloatsMPContext):
-        pass
-
-    # Exit a parse tree produced by miniPythonParser#floatsMP.
-    def exitFloatsMP(self, ctx:miniPythonParser.FloatsMPContext):
-        pass
-
-
-    # Enter a parse tree produced by miniPythonParser#chartsMP.
-    def enterChartsMP(self, ctx:miniPythonParser.ChartsMPContext):
-        pass
-
-    # Exit a parse tree produced by miniPythonParser#chartsMP.
-    def exitChartsMP(self, ctx:miniPythonParser.ChartsMPContext):
-        pass
-
-
-    # Enter a parse tree produced by miniPythonParser#stringsMP.
-    def enterStringsMP(self, ctx:miniPythonParser.StringsMPContext):
-        pass
-
-    # Exit a parse tree produced by miniPythonParser#stringsMP.
-    def exitStringsMP(self, ctx:miniPythonParser.StringsMPContext):
-        pass
-
-
-    # Enter a parse tree produced by miniPythonParser#identifierMP.
-    def enterIdentifierMP(self, ctx:miniPythonParser.IdentifierMPContext):
-        pass
-
-    # Exit a parse tree produced by miniPythonParser#identifierMP.
-    def exitIdentifierMP(self, ctx:miniPythonParser.IdentifierMPContext):
-        pass
-
-
-    # Enter a parse tree produced by miniPythonParser#parenthesisExpressionMP.
-    def enterParenthesisExpressionMP(self, ctx:miniPythonParser.ParenthesisExpressionMPContext):
-        pass
-
-    # Exit a parse tree produced by miniPythonParser#parenthesisExpressionMP.
-    def exitParenthesisExpressionMP(self, ctx:miniPythonParser.ParenthesisExpressionMPContext):
-        pass
-
-
-    # Enter a parse tree produced by miniPythonParser#listExpMP.
-    def enterListExpMP(self, ctx:miniPythonParser.ListExpMPContext):
-        pass
-
-    # Exit a parse tree produced by miniPythonParser#listExpMP.
-    def exitListExpMP(self, ctx:miniPythonParser.ListExpMPContext):
         pass
 
 
