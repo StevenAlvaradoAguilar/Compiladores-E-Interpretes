@@ -1,4 +1,4 @@
-# Generated from D:/Universidad/Compiladores_e_Interpretes/Compiladores-E-Interpretes/Compiladores-E-Interpretes/mini-python\miniPython.g4 by ANTLR 4.9.2
+# Generated from D:/Universidad/Compiladores_e_Interpretes/Compiladores-E-Interpretes/mini-python\miniPython.g4 by ANTLR 4.10.1
 # encoding: utf-8
 from antlr4 import *
 from io import StringIO
@@ -8,112 +8,89 @@ if sys.version_info[1] > 5:
 else:
 	from typing.io import TextIO
 
-
 def serializedATN():
-    with StringIO() as buf:
-        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\63")
-        buf.write("\u00f6\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7")
-        buf.write("\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t\13\4\f\t\f\4\r\t\r\4\16")
-        buf.write("\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22\4\23\t\23")
-        buf.write("\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\4\30\t\30\4\31")
-        buf.write("\t\31\4\32\t\32\4\33\t\33\4\34\t\34\3\2\3\2\7\2;\n\2\f")
-        buf.write("\2\16\2>\13\2\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\5\3")
-        buf.write("I\n\3\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\5\3\5\3\5\5\5")
-        buf.write("V\n\5\3\6\3\6\7\6Z\n\6\f\6\16\6]\13\6\3\7\3\7\3\7\3\7")
-        buf.write("\3\7\3\7\3\7\3\7\3\7\3\7\3\7\3\7\3\7\5\7l\n\7\3\b\3\b")
-        buf.write("\3\b\3\b\3\b\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\n\3\n\3\n\3")
-        buf.write("\n\3\13\3\13\3\13\3\13\3\13\3\13\3\f\3\f\3\f\3\f\3\f\3")
-        buf.write("\r\3\r\3\r\3\r\3\r\3\r\3\16\3\16\3\16\3\17\3\17\3\17\3")
-        buf.write("\17\3\20\6\20\u0097\n\20\r\20\16\20\u0098\3\21\3\21\3")
-        buf.write("\21\3\22\3\22\7\22\u00a0\n\22\f\22\16\22\u00a3\13\22\3")
-        buf.write("\23\3\23\3\23\3\24\3\24\7\24\u00aa\n\24\f\24\16\24\u00ad")
-        buf.write("\13\24\3\25\3\25\3\25\3\26\3\26\7\26\u00b4\n\26\f\26\16")
-        buf.write("\26\u00b7\13\26\3\27\3\27\3\27\3\27\5\27\u00bd\n\27\3")
-        buf.write("\30\3\30\3\30\3\30\6\30\u00c3\n\30\r\30\16\30\u00c4\3")
-        buf.write("\31\3\31\3\31\3\31\5\31\u00cb\n\31\3\32\3\32\7\32\u00cf")
-        buf.write("\n\32\f\32\16\32\u00d2\13\32\3\33\5\33\u00d5\n\33\3\33")
-        buf.write("\3\33\5\33\u00d9\n\33\3\33\3\33\3\33\3\33\3\33\3\33\3")
-        buf.write("\33\3\33\3\33\5\33\u00e4\n\33\3\33\3\33\3\33\3\33\3\33")
-        buf.write("\3\33\3\33\3\33\3\33\3\33\5\33\u00f0\n\33\3\34\3\34\3")
-        buf.write("\34\3\34\3\34\2\2\35\2\4\6\b\n\f\16\20\22\24\26\30\32")
-        buf.write("\34\36 \"$&(*,.\60\62\64\66\2\6\4\2\5\5\27\30\4\2\22\26")
-        buf.write("\31\32\4\2\f\f\16\16\4\2\r\r\17\17\2\u00f8\28\3\2\2\2")
-        buf.write("\4H\3\2\2\2\6J\3\2\2\2\bU\3\2\2\2\n[\3\2\2\2\fk\3\2\2")
-        buf.write("\2\16m\3\2\2\2\20r\3\2\2\2\22y\3\2\2\2\24}\3\2\2\2\26")
-        buf.write("\u0083\3\2\2\2\30\u0088\3\2\2\2\32\u008e\3\2\2\2\34\u0091")
-        buf.write("\3\2\2\2\36\u0096\3\2\2\2 \u009a\3\2\2\2\"\u00a1\3\2\2")
-        buf.write("\2$\u00a4\3\2\2\2&\u00ab\3\2\2\2(\u00ae\3\2\2\2*\u00b5")
-        buf.write("\3\2\2\2,\u00bc\3\2\2\2.\u00c2\3\2\2\2\60\u00ca\3\2\2")
-        buf.write("\2\62\u00d0\3\2\2\2\64\u00ef\3\2\2\2\66\u00f1\3\2\2\2")
-        buf.write("8<\5\4\3\29;\5\4\3\2:9\3\2\2\2;>\3\2\2\2<:\3\2\2\2<=\3")
-        buf.write("\2\2\2=\3\3\2\2\2><\3\2\2\2?I\5\6\4\2@I\5\f\7\2AI\5\22")
-        buf.write("\n\2BI\5\24\13\2CI\5\16\b\2DI\5\20\t\2EI\5\26\f\2FI\5")
-        buf.write("\30\r\2GI\5\32\16\2H?\3\2\2\2H@\3\2\2\2HA\3\2\2\2HB\3")
-        buf.write("\2\2\2HC\3\2\2\2HD\3\2\2\2HE\3\2\2\2HF\3\2\2\2HG\3\2\2")
-        buf.write("\2I\5\3\2\2\2JK\7$\2\2KL\7*\2\2LM\7\6\2\2MN\5\b\5\2NO")
-        buf.write("\7\7\2\2OP\7\13\2\2PQ\5\34\17\2Q\7\3\2\2\2RS\7*\2\2SV")
-        buf.write("\5\n\6\2TV\3\2\2\2UR\3\2\2\2UT\3\2\2\2V\t\3\2\2\2WX\7")
-        buf.write("\3\2\2XZ\7*\2\2YW\3\2\2\2Z]\3\2\2\2[Y\3\2\2\2[\\\3\2\2")
-        buf.write("\2\\\13\3\2\2\2][\3\2\2\2^_\7\33\2\2_`\5 \21\2`a\7\13")
-        buf.write("\2\2ab\5\34\17\2bc\7\35\2\2cd\7\13\2\2de\5\34\17\2el\3")
-        buf.write("\2\2\2fg\7\33\2\2gh\5 \21\2hi\7\13\2\2ij\5\34\17\2jl\3")
-        buf.write("\2\2\2k^\3\2\2\2kf\3\2\2\2l\r\3\2\2\2mn\7\36\2\2no\5 ")
-        buf.write("\21\2op\7\13\2\2pq\5\34\17\2q\17\3\2\2\2rs\7&\2\2st\5")
-        buf.write(" \21\2tu\7!\2\2uv\5\60\31\2vw\7\13\2\2wx\5\34\17\2x\21")
-        buf.write("\3\2\2\2yz\7\'\2\2z{\5 \21\2{|\7\60\2\2|\23\3\2\2\2}~")
-        buf.write("\7(\2\2~\177\7\6\2\2\177\u0080\5 \21\2\u0080\u0081\7\7")
-        buf.write("\2\2\u0081\u0082\7\60\2\2\u0082\25\3\2\2\2\u0083\u0084")
-        buf.write("\7*\2\2\u0084\u0085\t\2\2\2\u0085\u0086\5 \21\2\u0086")
-        buf.write("\u0087\7\60\2\2\u0087\27\3\2\2\2\u0088\u0089\5\64\33\2")
-        buf.write("\u0089\u008a\7\6\2\2\u008a\u008b\5\60\31\2\u008b\u008c")
-        buf.write("\7\7\2\2\u008c\u008d\7\60\2\2\u008d\31\3\2\2\2\u008e\u008f")
-        buf.write("\5\60\31\2\u008f\u0090\7\60\2\2\u0090\33\3\2\2\2\u0091")
-        buf.write("\u0092\7\62\2\2\u0092\u0093\5\36\20\2\u0093\u0094\7\63")
-        buf.write("\2\2\u0094\35\3\2\2\2\u0095\u0097\5\4\3\2\u0096\u0095")
-        buf.write("\3\2\2\2\u0097\u0098\3\2\2\2\u0098\u0096\3\2\2\2\u0098")
-        buf.write("\u0099\3\2\2\2\u0099\37\3\2\2\2\u009a\u009b\5$\23\2\u009b")
-        buf.write("\u009c\5\"\22\2\u009c!\3\2\2\2\u009d\u009e\t\3\2\2\u009e")
-        buf.write("\u00a0\5$\23\2\u009f\u009d\3\2\2\2\u00a0\u00a3\3\2\2\2")
-        buf.write("\u00a1\u009f\3\2\2\2\u00a1\u00a2\3\2\2\2\u00a2#\3\2\2")
-        buf.write("\2\u00a3\u00a1\3\2\2\2\u00a4\u00a5\5(\25\2\u00a5\u00a6")
-        buf.write("\5&\24\2\u00a6%\3\2\2\2\u00a7\u00a8\t\4\2\2\u00a8\u00aa")
-        buf.write("\5(\25\2\u00a9\u00a7\3\2\2\2\u00aa\u00ad\3\2\2\2\u00ab")
-        buf.write("\u00a9\3\2\2\2\u00ab\u00ac\3\2\2\2\u00ac\'\3\2\2\2\u00ad")
-        buf.write("\u00ab\3\2\2\2\u00ae\u00af\5,\27\2\u00af\u00b0\5*\26\2")
-        buf.write("\u00b0)\3\2\2\2\u00b1\u00b2\t\5\2\2\u00b2\u00b4\5,\27")
-        buf.write("\2\u00b3\u00b1\3\2\2\2\u00b4\u00b7\3\2\2\2\u00b5\u00b3")
-        buf.write("\3\2\2\2\u00b5\u00b6\3\2\2\2\u00b6+\3\2\2\2\u00b7\u00b5")
-        buf.write("\3\2\2\2\u00b8\u00b9\5\64\33\2\u00b9\u00ba\5.\30\2\u00ba")
-        buf.write("\u00bd\3\2\2\2\u00bb\u00bd\5\64\33\2\u00bc\u00b8\3\2\2")
-        buf.write("\2\u00bc\u00bb\3\2\2\2\u00bd-\3\2\2\2\u00be\u00bf\7\b")
-        buf.write("\2\2\u00bf\u00c0\5 \21\2\u00c0\u00c1\7\t\2\2\u00c1\u00c3")
-        buf.write("\3\2\2\2\u00c2\u00be\3\2\2\2\u00c3\u00c4\3\2\2\2\u00c4")
-        buf.write("\u00c2\3\2\2\2\u00c4\u00c5\3\2\2\2\u00c5/\3\2\2\2\u00c6")
-        buf.write("\u00c7\5 \21\2\u00c7\u00c8\5\62\32\2\u00c8\u00cb\3\2\2")
-        buf.write("\2\u00c9\u00cb\3\2\2\2\u00ca\u00c6\3\2\2\2\u00ca\u00c9")
-        buf.write("\3\2\2\2\u00cb\61\3\2\2\2\u00cc\u00cd\7\3\2\2\u00cd\u00cf")
-        buf.write("\5 \21\2\u00ce\u00cc\3\2\2\2\u00cf\u00d2\3\2\2\2\u00d0")
-        buf.write("\u00ce\3\2\2\2\u00d0\u00d1\3\2\2\2\u00d1\63\3\2\2\2\u00d2")
-        buf.write("\u00d0\3\2\2\2\u00d3\u00d5\7\16\2\2\u00d4\u00d3\3\2\2")
-        buf.write("\2\u00d4\u00d5\3\2\2\2\u00d5\u00d6\3\2\2\2\u00d6\u00f0")
-        buf.write("\7)\2\2\u00d7\u00d9\7\16\2\2\u00d8\u00d7\3\2\2\2\u00d8")
-        buf.write("\u00d9\3\2\2\2\u00d9\u00da\3\2\2\2\u00da\u00f0\7,\2\2")
-        buf.write("\u00db\u00f0\7-\2\2\u00dc\u00f0\7+\2\2\u00dd\u00e3\7*")
-        buf.write("\2\2\u00de\u00df\7\6\2\2\u00df\u00e0\5\60\31\2\u00e0\u00e1")
-        buf.write("\7\7\2\2\u00e1\u00e4\3\2\2\2\u00e2\u00e4\3\2\2\2\u00e3")
-        buf.write("\u00de\3\2\2\2\u00e3\u00e2\3\2\2\2\u00e4\u00f0\3\2\2\2")
-        buf.write("\u00e5\u00e6\7\6\2\2\u00e6\u00e7\5 \21\2\u00e7\u00e8\7")
-        buf.write("\7\2\2\u00e8\u00f0\3\2\2\2\u00e9\u00f0\5\66\34\2\u00ea")
-        buf.write("\u00eb\7%\2\2\u00eb\u00ec\7\6\2\2\u00ec\u00ed\5 \21\2")
-        buf.write("\u00ed\u00ee\7\7\2\2\u00ee\u00f0\3\2\2\2\u00ef\u00d4\3")
-        buf.write("\2\2\2\u00ef\u00d8\3\2\2\2\u00ef\u00db\3\2\2\2\u00ef\u00dc")
-        buf.write("\3\2\2\2\u00ef\u00dd\3\2\2\2\u00ef\u00e5\3\2\2\2\u00ef")
-        buf.write("\u00e9\3\2\2\2\u00ef\u00ea\3\2\2\2\u00f0\65\3\2\2\2\u00f1")
-        buf.write("\u00f2\7\b\2\2\u00f2\u00f3\5\60\31\2\u00f3\u00f4\7\t\2")
-        buf.write("\2\u00f4\67\3\2\2\2\23<HU[k\u0098\u00a1\u00ab\u00b5\u00bc")
-        buf.write("\u00c4\u00ca\u00d0\u00d4\u00d8\u00e3\u00ef")
-        return buf.getvalue()
-
+    return [
+        4,1,50,237,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
+        6,2,7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,2,13,7,13,
+        2,14,7,14,2,15,7,15,2,16,7,16,2,17,7,17,2,18,7,18,2,19,7,19,2,20,
+        7,20,2,21,7,21,2,22,7,22,2,23,7,23,2,24,7,24,2,25,7,25,2,26,7,26,
+        1,0,1,0,5,0,57,8,0,10,0,12,0,60,9,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+        1,1,1,1,3,1,71,8,1,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,3,1,3,1,3,3,
+        3,84,8,3,1,4,1,4,5,4,88,8,4,10,4,12,4,91,9,4,1,5,1,5,1,5,1,5,1,5,
+        1,5,1,5,1,5,1,6,1,6,1,6,1,6,1,6,1,7,1,7,1,7,1,7,1,7,1,7,1,7,1,8,
+        1,8,1,8,1,8,1,9,1,9,1,9,1,9,1,9,1,9,1,10,1,10,1,10,1,10,1,10,1,11,
+        1,11,1,11,1,11,1,11,1,11,1,12,1,12,1,12,1,13,1,13,1,13,1,13,1,14,
+        4,14,142,8,14,11,14,12,14,143,1,15,1,15,1,15,1,16,1,16,5,16,151,
+        8,16,10,16,12,16,154,9,16,1,17,1,17,1,17,1,18,1,18,5,18,161,8,18,
+        10,18,12,18,164,9,18,1,19,1,19,1,19,1,20,1,20,5,20,171,8,20,10,20,
+        12,20,174,9,20,1,21,1,21,1,21,1,21,3,21,180,8,21,1,22,1,22,1,22,
+        1,22,4,22,186,8,22,11,22,12,22,187,1,23,1,23,1,23,1,23,3,23,194,
+        8,23,1,24,1,24,5,24,198,8,24,10,24,12,24,201,9,24,1,25,3,25,204,
+        8,25,1,25,1,25,3,25,208,8,25,1,25,1,25,1,25,1,25,1,25,1,25,1,25,
+        1,25,1,25,3,25,219,8,25,1,25,1,25,1,25,1,25,1,25,1,25,1,25,1,25,
+        1,25,1,25,3,25,231,8,25,1,26,1,26,1,26,1,26,1,26,0,0,27,0,2,4,6,
+        8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,
+        52,0,4,2,0,3,3,21,22,2,0,16,20,23,24,2,0,10,10,12,12,2,0,11,11,13,
+        13,238,0,54,1,0,0,0,2,70,1,0,0,0,4,72,1,0,0,0,6,83,1,0,0,0,8,89,
+        1,0,0,0,10,92,1,0,0,0,12,100,1,0,0,0,14,105,1,0,0,0,16,112,1,0,0,
+        0,18,116,1,0,0,0,20,122,1,0,0,0,22,127,1,0,0,0,24,133,1,0,0,0,26,
+        136,1,0,0,0,28,141,1,0,0,0,30,145,1,0,0,0,32,152,1,0,0,0,34,155,
+        1,0,0,0,36,162,1,0,0,0,38,165,1,0,0,0,40,172,1,0,0,0,42,179,1,0,
+        0,0,44,185,1,0,0,0,46,193,1,0,0,0,48,199,1,0,0,0,50,230,1,0,0,0,
+        52,232,1,0,0,0,54,58,3,2,1,0,55,57,3,2,1,0,56,55,1,0,0,0,57,60,1,
+        0,0,0,58,56,1,0,0,0,58,59,1,0,0,0,59,1,1,0,0,0,60,58,1,0,0,0,61,
+        71,3,4,2,0,62,71,3,10,5,0,63,71,3,16,8,0,64,71,3,18,9,0,65,71,3,
+        12,6,0,66,71,3,14,7,0,67,71,3,20,10,0,68,71,3,22,11,0,69,71,3,24,
+        12,0,70,61,1,0,0,0,70,62,1,0,0,0,70,63,1,0,0,0,70,64,1,0,0,0,70,
+        65,1,0,0,0,70,66,1,0,0,0,70,67,1,0,0,0,70,68,1,0,0,0,70,69,1,0,0,
+        0,71,3,1,0,0,0,72,73,5,35,0,0,73,74,5,41,0,0,74,75,5,4,0,0,75,76,
+        3,6,3,0,76,77,5,5,0,0,77,78,5,9,0,0,78,79,3,26,13,0,79,5,1,0,0,0,
+        80,81,5,41,0,0,81,84,3,8,4,0,82,84,1,0,0,0,83,80,1,0,0,0,83,82,1,
+        0,0,0,84,7,1,0,0,0,85,86,5,1,0,0,86,88,5,41,0,0,87,85,1,0,0,0,88,
+        91,1,0,0,0,89,87,1,0,0,0,89,90,1,0,0,0,90,9,1,0,0,0,91,89,1,0,0,
+        0,92,93,5,26,0,0,93,94,3,30,15,0,94,95,5,9,0,0,95,96,3,26,13,0,96,
+        97,5,28,0,0,97,98,5,9,0,0,98,99,3,26,13,0,99,11,1,0,0,0,100,101,
+        5,29,0,0,101,102,3,30,15,0,102,103,5,9,0,0,103,104,3,26,13,0,104,
+        13,1,0,0,0,105,106,5,37,0,0,106,107,3,30,15,0,107,108,5,32,0,0,108,
+        109,3,46,23,0,109,110,5,9,0,0,110,111,3,26,13,0,111,15,1,0,0,0,112,
+        113,5,38,0,0,113,114,3,30,15,0,114,115,5,47,0,0,115,17,1,0,0,0,116,
+        117,5,39,0,0,117,118,5,4,0,0,118,119,3,30,15,0,119,120,5,5,0,0,120,
+        121,5,47,0,0,121,19,1,0,0,0,122,123,5,41,0,0,123,124,7,0,0,0,124,
+        125,3,30,15,0,125,126,5,47,0,0,126,21,1,0,0,0,127,128,3,50,25,0,
+        128,129,5,4,0,0,129,130,3,46,23,0,130,131,5,5,0,0,131,132,5,47,0,
+        0,132,23,1,0,0,0,133,134,3,46,23,0,134,135,5,47,0,0,135,25,1,0,0,
+        0,136,137,5,49,0,0,137,138,3,28,14,0,138,139,5,50,0,0,139,27,1,0,
+        0,0,140,142,3,2,1,0,141,140,1,0,0,0,142,143,1,0,0,0,143,141,1,0,
+        0,0,143,144,1,0,0,0,144,29,1,0,0,0,145,146,3,34,17,0,146,147,3,32,
+        16,0,147,31,1,0,0,0,148,149,7,1,0,0,149,151,3,34,17,0,150,148,1,
+        0,0,0,151,154,1,0,0,0,152,150,1,0,0,0,152,153,1,0,0,0,153,33,1,0,
+        0,0,154,152,1,0,0,0,155,156,3,38,19,0,156,157,3,36,18,0,157,35,1,
+        0,0,0,158,159,7,2,0,0,159,161,3,38,19,0,160,158,1,0,0,0,161,164,
+        1,0,0,0,162,160,1,0,0,0,162,163,1,0,0,0,163,37,1,0,0,0,164,162,1,
+        0,0,0,165,166,3,42,21,0,166,167,3,40,20,0,167,39,1,0,0,0,168,169,
+        7,3,0,0,169,171,3,42,21,0,170,168,1,0,0,0,171,174,1,0,0,0,172,170,
+        1,0,0,0,172,173,1,0,0,0,173,41,1,0,0,0,174,172,1,0,0,0,175,176,3,
+        50,25,0,176,177,3,44,22,0,177,180,1,0,0,0,178,180,3,50,25,0,179,
+        175,1,0,0,0,179,178,1,0,0,0,180,43,1,0,0,0,181,182,5,6,0,0,182,183,
+        3,30,15,0,183,184,5,7,0,0,184,186,1,0,0,0,185,181,1,0,0,0,186,187,
+        1,0,0,0,187,185,1,0,0,0,187,188,1,0,0,0,188,45,1,0,0,0,189,190,3,
+        30,15,0,190,191,3,48,24,0,191,194,1,0,0,0,192,194,1,0,0,0,193,189,
+        1,0,0,0,193,192,1,0,0,0,194,47,1,0,0,0,195,196,5,1,0,0,196,198,3,
+        30,15,0,197,195,1,0,0,0,198,201,1,0,0,0,199,197,1,0,0,0,199,200,
+        1,0,0,0,200,49,1,0,0,0,201,199,1,0,0,0,202,204,5,12,0,0,203,202,
+        1,0,0,0,203,204,1,0,0,0,204,205,1,0,0,0,205,231,5,40,0,0,206,208,
+        5,12,0,0,207,206,1,0,0,0,207,208,1,0,0,0,208,209,1,0,0,0,209,231,
+        5,43,0,0,210,231,5,44,0,0,211,231,5,42,0,0,212,218,5,41,0,0,213,
+        214,5,4,0,0,214,215,3,46,23,0,215,216,5,5,0,0,216,219,1,0,0,0,217,
+        219,1,0,0,0,218,213,1,0,0,0,218,217,1,0,0,0,219,231,1,0,0,0,220,
+        221,5,4,0,0,221,222,3,30,15,0,222,223,5,5,0,0,223,231,1,0,0,0,224,
+        231,3,52,26,0,225,226,5,36,0,0,226,227,5,4,0,0,227,228,3,30,15,0,
+        228,229,5,5,0,0,229,231,1,0,0,0,230,203,1,0,0,0,230,207,1,0,0,0,
+        230,210,1,0,0,0,230,211,1,0,0,0,230,212,1,0,0,0,230,220,1,0,0,0,
+        230,224,1,0,0,0,230,225,1,0,0,0,231,51,1,0,0,0,232,233,5,6,0,0,233,
+        234,3,46,23,0,234,235,5,7,0,0,235,53,1,0,0,0,16,58,70,83,89,143,
+        152,162,172,179,187,193,199,203,207,218,230
+    ]
 
 class miniPythonParser ( Parser ):
 
@@ -128,18 +105,18 @@ class miniPythonParser ( Parser ):
     literalNames = [ "<INVALID>", "','", "';'", "'='", "'('", "')'", "'['", 
                      "']'", "'~'", "':'", "'+'", "'*'", "'-'", "'/'", "'**'", 
                      "'%'", "'<'", "'>'", "'<='", "'>='", "'=='", "'+='", 
-                     "'-='", "'*='", "'/='", "'if'", "'then'", "'else'", 
-                     "'while'", "'do'", "'let'", "'in'", "'begin'", "'end'", 
-                     "'def'", "'len'", "'for'", "'return'", "'print'" ]
+                     "'-='", "'*='", "'/='", "'\\n'", "'if'", "'then'", 
+                     "'else'", "'while'", "'do'", "'let'", "'in'", "'begin'", 
+                     "'end'", "'def'", "'len'", "'for'", "'return'", "'print'" ]
 
     symbolicNames = [ "<INVALID>", "COMA", "PyCOMA", "ASIGN", "PIZQ", "PDER", 
                       "CIZQ", "CDER", "VIR", "DOSPUNT", "MAS", "MULT", "MEN", 
                       "DIV", "POT", "MOD", "MENQUE", "MAYQUE", "MENQUEEQUAL", 
                       "MAYQUEEQUAL", "EQUALEQUAL", "MASEQUAL", "MENEQUAL", 
-                      "MULTEQUAL", "DIVEQUAL", "IF", "THEN", "ELSE", "WHILE", 
-                      "DO", "LET", "IN", "BEGIN", "END", "DEF", "LEN", "FOR", 
-                      "RETURN", "PRINT", "INTEGER", "IDENTIFIER", "STRING", 
-                      "FLOAT", "CHARCONTS", "COMENTLINEA", "COMENTMULTILINEA", 
+                      "MULTEQUAL", "DIVEQUAL", "HASH", "IF", "THEN", "ELSE", 
+                      "WHILE", "DO", "LET", "IN", "BEGIN", "END", "DEF", 
+                      "LEN", "FOR", "RETURN", "PRINT", "INTEGER", "IDENTIFIER", 
+                      "STRING", "FLOAT", "CHARCONTS", "COMENTLINEA", "COMENTMULTILINEA", 
                       "NEWLINE", "WS", "INDENT", "DEDENT" ]
 
     RULE_program = 0
@@ -204,35 +181,36 @@ class miniPythonParser ( Parser ):
     MENEQUAL=22
     MULTEQUAL=23
     DIVEQUAL=24
-    IF=25
-    THEN=26
-    ELSE=27
-    WHILE=28
-    DO=29
-    LET=30
-    IN=31
-    BEGIN=32
-    END=33
-    DEF=34
-    LEN=35
-    FOR=36
-    RETURN=37
-    PRINT=38
-    INTEGER=39
-    IDENTIFIER=40
-    STRING=41
-    FLOAT=42
-    CHARCONTS=43
-    COMENTLINEA=44
-    COMENTMULTILINEA=45
-    NEWLINE=46
-    WS=47
-    INDENT=48
-    DEDENT=49
+    HASH=25
+    IF=26
+    THEN=27
+    ELSE=28
+    WHILE=29
+    DO=30
+    LET=31
+    IN=32
+    BEGIN=33
+    END=34
+    DEF=35
+    LEN=36
+    FOR=37
+    RETURN=38
+    PRINT=39
+    INTEGER=40
+    IDENTIFIER=41
+    STRING=42
+    FLOAT=43
+    CHARCONTS=44
+    COMENTLINEA=45
+    COMENTMULTILINEA=46
+    NEWLINE=47
+    WS=48
+    INDENT=49
+    DEDENT=50
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)
-        self.checkVersion("4.9.2")
+        self.checkVersion("4.10.1")
         self._interp = ParserATNSimulator(self, self.atn, self.decisionsToDFA, self.sharedContextCache)
         self._predicates = None
 
@@ -268,6 +246,20 @@ class miniPythonParser ( Parser ):
             else:
                 return self.getTypedRuleContext(miniPythonParser.StatementContext,i)
 
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterProgramMP" ):
+                listener.enterProgramMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitProgramMP" ):
+                listener.exitProgramMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitProgramMP" ):
+                return visitor.visitProgramMP(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -317,7 +309,57 @@ class miniPythonParser ( Parser ):
 
 
 
-    class StatementMPContext(StatementContext):
+    class IfStatContext(StatementContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a miniPythonParser.StatementContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+        def ifStatement(self):
+            return self.getTypedRuleContext(miniPythonParser.IfStatementContext,0)
+
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterIfStat" ):
+                listener.enterIfStat(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitIfStat" ):
+                listener.exitIfStat(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitIfStat" ):
+                return visitor.visitIfStat(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+    class FunctionCallStatContext(StatementContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a miniPythonParser.StatementContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+        def functionCallStatement(self):
+            return self.getTypedRuleContext(miniPythonParser.FunctionCallStatementContext,0)
+
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterFunctionCallStat" ):
+                listener.enterFunctionCallStat(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitFunctionCallStat" ):
+                listener.exitFunctionCallStat(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitFunctionCallStat" ):
+                return visitor.visitFunctionCallStat(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+    class DefStatContext(StatementContext):
 
         def __init__(self, parser, ctx:ParserRuleContext): # actually a miniPythonParser.StatementContext
             super().__init__(parser)
@@ -326,30 +368,170 @@ class miniPythonParser ( Parser ):
         def defStatement(self):
             return self.getTypedRuleContext(miniPythonParser.DefStatementContext,0)
 
-        def ifStatement(self):
-            return self.getTypedRuleContext(miniPythonParser.IfStatementContext,0)
 
-        def returnStatement(self):
-            return self.getTypedRuleContext(miniPythonParser.ReturnStatementContext,0)
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterDefStat" ):
+                listener.enterDefStat(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitDefStat" ):
+                listener.exitDefStat(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitDefStat" ):
+                return visitor.visitDefStat(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+    class PrintStatContext(StatementContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a miniPythonParser.StatementContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
 
         def printStatement(self):
             return self.getTypedRuleContext(miniPythonParser.PrintStatementContext,0)
 
-        def whileStatement(self):
-            return self.getTypedRuleContext(miniPythonParser.WhileStatementContext,0)
 
-        def forStatement(self):
-            return self.getTypedRuleContext(miniPythonParser.ForStatementContext,0)
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterPrintStat" ):
+                listener.enterPrintStat(self)
 
-        def assignStatement(self):
-            return self.getTypedRuleContext(miniPythonParser.AssignStatementContext,0)
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitPrintStat" ):
+                listener.exitPrintStat(self)
 
-        def functionCallStatement(self):
-            return self.getTypedRuleContext(miniPythonParser.FunctionCallStatementContext,0)
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitPrintStat" ):
+                return visitor.visitPrintStat(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+    class ReturnStatContext(StatementContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a miniPythonParser.StatementContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+        def returnStatement(self):
+            return self.getTypedRuleContext(miniPythonParser.ReturnStatementContext,0)
+
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterReturnStat" ):
+                listener.enterReturnStat(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitReturnStat" ):
+                listener.exitReturnStat(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitReturnStat" ):
+                return visitor.visitReturnStat(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+    class ExpressionStContext(StatementContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a miniPythonParser.StatementContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
 
         def expressionStatement(self):
             return self.getTypedRuleContext(miniPythonParser.ExpressionStatementContext,0)
 
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterExpressionSt" ):
+                listener.enterExpressionSt(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitExpressionSt" ):
+                listener.exitExpressionSt(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitExpressionSt" ):
+                return visitor.visitExpressionSt(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+    class AssignStatContext(StatementContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a miniPythonParser.StatementContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+        def assignStatement(self):
+            return self.getTypedRuleContext(miniPythonParser.AssignStatementContext,0)
+
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterAssignStat" ):
+                listener.enterAssignStat(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitAssignStat" ):
+                listener.exitAssignStat(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitAssignStat" ):
+                return visitor.visitAssignStat(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+    class ForStatContext(StatementContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a miniPythonParser.StatementContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+        def forStatement(self):
+            return self.getTypedRuleContext(miniPythonParser.ForStatementContext,0)
+
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterForStat" ):
+                listener.enterForStat(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitForStat" ):
+                listener.exitForStat(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitForStat" ):
+                return visitor.visitForStat(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+    class WhileStatContext(StatementContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a miniPythonParser.StatementContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+        def whileStatement(self):
+            return self.getTypedRuleContext(miniPythonParser.WhileStatementContext,0)
+
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterWhileStat" ):
+                listener.enterWhileStat(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitWhileStat" ):
+                listener.exitWhileStat(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitWhileStat" ):
+                return visitor.visitWhileStat(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -358,52 +540,68 @@ class miniPythonParser ( Parser ):
         localctx = miniPythonParser.StatementContext(self, self._ctx, self.state)
         self.enterRule(localctx, 2, self.RULE_statement)
         try:
-            localctx = miniPythonParser.StatementMPContext(self, localctx)
-            self.enterOuterAlt(localctx, 1)
             self.state = 70
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,1,self._ctx)
             if la_ == 1:
+                localctx = miniPythonParser.DefStatContext(self, localctx)
+                self.enterOuterAlt(localctx, 1)
                 self.state = 61
                 self.defStatement()
                 pass
 
             elif la_ == 2:
+                localctx = miniPythonParser.IfStatContext(self, localctx)
+                self.enterOuterAlt(localctx, 2)
                 self.state = 62
                 self.ifStatement()
                 pass
 
             elif la_ == 3:
+                localctx = miniPythonParser.ReturnStatContext(self, localctx)
+                self.enterOuterAlt(localctx, 3)
                 self.state = 63
                 self.returnStatement()
                 pass
 
             elif la_ == 4:
+                localctx = miniPythonParser.PrintStatContext(self, localctx)
+                self.enterOuterAlt(localctx, 4)
                 self.state = 64
                 self.printStatement()
                 pass
 
             elif la_ == 5:
+                localctx = miniPythonParser.WhileStatContext(self, localctx)
+                self.enterOuterAlt(localctx, 5)
                 self.state = 65
                 self.whileStatement()
                 pass
 
             elif la_ == 6:
+                localctx = miniPythonParser.ForStatContext(self, localctx)
+                self.enterOuterAlt(localctx, 6)
                 self.state = 66
                 self.forStatement()
                 pass
 
             elif la_ == 7:
+                localctx = miniPythonParser.AssignStatContext(self, localctx)
+                self.enterOuterAlt(localctx, 7)
                 self.state = 67
                 self.assignStatement()
                 pass
 
             elif la_ == 8:
+                localctx = miniPythonParser.FunctionCallStatContext(self, localctx)
+                self.enterOuterAlt(localctx, 8)
                 self.state = 68
                 self.functionCallStatement()
                 pass
 
             elif la_ == 9:
+                localctx = miniPythonParser.ExpressionStContext(self, localctx)
+                self.enterOuterAlt(localctx, 9)
                 self.state = 69
                 self.expressionStatement()
                 pass
@@ -457,6 +655,20 @@ class miniPythonParser ( Parser ):
         def sequence(self):
             return self.getTypedRuleContext(miniPythonParser.SequenceContext,0)
 
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterDefStatementMP" ):
+                listener.enterDefStatementMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitDefStatementMP" ):
+                listener.exitDefStatementMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitDefStatementMP" ):
+                return visitor.visitDefStatementMP(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -518,6 +730,20 @@ class miniPythonParser ( Parser ):
         def moreArgs(self):
             return self.getTypedRuleContext(miniPythonParser.MoreArgsContext,0)
 
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterArgListMP" ):
+                listener.enterArgListMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitArgListMP" ):
+                listener.exitArgListMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitArgListMP" ):
+                return visitor.visitArgListMP(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -584,6 +810,20 @@ class miniPythonParser ( Parser ):
                 return self.getTokens(miniPythonParser.IDENTIFIER)
             else:
                 return self.getToken(miniPythonParser.IDENTIFIER, i)
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterMoreArgsMP" ):
+                listener.enterMoreArgsMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitMoreArgsMP" ):
+                listener.exitMoreArgsMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitMoreArgsMP" ):
+                return visitor.visitMoreArgsMP(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -658,6 +898,20 @@ class miniPythonParser ( Parser ):
         def ELSE(self):
             return self.getToken(miniPythonParser.ELSE, 0)
 
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterIfStatementMP" ):
+                listener.enterIfStatementMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitIfStatementMP" ):
+                listener.exitIfStatementMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitIfStatementMP" ):
+                return visitor.visitIfStatementMP(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
     def ifStatement(self):
@@ -667,38 +921,20 @@ class miniPythonParser ( Parser ):
         try:
             localctx = miniPythonParser.IfStatementMPContext(self, localctx)
             self.enterOuterAlt(localctx, 1)
-            self.state = 105
-            self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input,4,self._ctx)
-            if la_ == 1:
-                self.state = 92
-                self.match(miniPythonParser.IF)
-                self.state = 93
-                self.expression()
-                self.state = 94
-                self.match(miniPythonParser.DOSPUNT)
-                self.state = 95
-                self.sequence()
-                self.state = 96
-                self.match(miniPythonParser.ELSE)
-                self.state = 97
-                self.match(miniPythonParser.DOSPUNT)
-                self.state = 98
-                self.sequence()
-                pass
-
-            elif la_ == 2:
-                self.state = 100
-                self.match(miniPythonParser.IF)
-                self.state = 101
-                self.expression()
-                self.state = 102
-                self.match(miniPythonParser.DOSPUNT)
-                self.state = 103
-                self.sequence()
-                pass
-
-
+            self.state = 92
+            self.match(miniPythonParser.IF)
+            self.state = 93
+            self.expression()
+            self.state = 94
+            self.match(miniPythonParser.DOSPUNT)
+            self.state = 95
+            self.sequence()
+            self.state = 96
+            self.match(miniPythonParser.ELSE)
+            self.state = 97
+            self.match(miniPythonParser.DOSPUNT)
+            self.state = 98
+            self.sequence()
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -742,6 +978,20 @@ class miniPythonParser ( Parser ):
             return self.getTypedRuleContext(miniPythonParser.SequenceContext,0)
 
 
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterWhileStatementMP" ):
+                listener.enterWhileStatementMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitWhileStatementMP" ):
+                listener.exitWhileStatementMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitWhileStatementMP" ):
+                return visitor.visitWhileStatementMP(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
     def whileStatement(self):
@@ -751,13 +1001,13 @@ class miniPythonParser ( Parser ):
         try:
             localctx = miniPythonParser.WhileStatementMPContext(self, localctx)
             self.enterOuterAlt(localctx, 1)
-            self.state = 107
+            self.state = 100
             self.match(miniPythonParser.WHILE)
-            self.state = 108
+            self.state = 101
             self.expression()
-            self.state = 109
+            self.state = 102
             self.match(miniPythonParser.DOSPUNT)
-            self.state = 110
+            self.state = 103
             self.sequence()
         except RecognitionException as re:
             localctx.exception = re
@@ -807,6 +1057,20 @@ class miniPythonParser ( Parser ):
             return self.getTypedRuleContext(miniPythonParser.SequenceContext,0)
 
 
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterForStatementMP" ):
+                listener.enterForStatementMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitForStatementMP" ):
+                listener.exitForStatementMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitForStatementMP" ):
+                return visitor.visitForStatementMP(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
     def forStatement(self):
@@ -816,17 +1080,17 @@ class miniPythonParser ( Parser ):
         try:
             localctx = miniPythonParser.ForStatementMPContext(self, localctx)
             self.enterOuterAlt(localctx, 1)
-            self.state = 112
+            self.state = 105
             self.match(miniPythonParser.FOR)
-            self.state = 113
+            self.state = 106
             self.expression()
-            self.state = 114
+            self.state = 107
             self.match(miniPythonParser.IN)
-            self.state = 115
+            self.state = 108
             self.expressionList()
-            self.state = 116
+            self.state = 109
             self.match(miniPythonParser.DOSPUNT)
-            self.state = 117
+            self.state = 110
             self.sequence()
         except RecognitionException as re:
             localctx.exception = re
@@ -868,6 +1132,20 @@ class miniPythonParser ( Parser ):
         def NEWLINE(self):
             return self.getToken(miniPythonParser.NEWLINE, 0)
 
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterReturnStatementMP" ):
+                listener.enterReturnStatementMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitReturnStatementMP" ):
+                listener.exitReturnStatementMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitReturnStatementMP" ):
+                return visitor.visitReturnStatementMP(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
     def returnStatement(self):
@@ -877,11 +1155,11 @@ class miniPythonParser ( Parser ):
         try:
             localctx = miniPythonParser.ReturnStatementMPContext(self, localctx)
             self.enterOuterAlt(localctx, 1)
-            self.state = 119
+            self.state = 112
             self.match(miniPythonParser.RETURN)
-            self.state = 120
+            self.state = 113
             self.expression()
-            self.state = 121
+            self.state = 114
             self.match(miniPythonParser.NEWLINE)
         except RecognitionException as re:
             localctx.exception = re
@@ -927,6 +1205,20 @@ class miniPythonParser ( Parser ):
         def NEWLINE(self):
             return self.getToken(miniPythonParser.NEWLINE, 0)
 
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterPrintStatementMP" ):
+                listener.enterPrintStatementMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitPrintStatementMP" ):
+                listener.exitPrintStatementMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitPrintStatementMP" ):
+                return visitor.visitPrintStatementMP(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
     def printStatement(self):
@@ -936,15 +1228,15 @@ class miniPythonParser ( Parser ):
         try:
             localctx = miniPythonParser.PrintStatementMPContext(self, localctx)
             self.enterOuterAlt(localctx, 1)
-            self.state = 123
+            self.state = 116
             self.match(miniPythonParser.PRINT)
-            self.state = 124
+            self.state = 117
             self.match(miniPythonParser.PIZQ)
-            self.state = 125
+            self.state = 118
             self.expression()
-            self.state = 126
+            self.state = 119
             self.match(miniPythonParser.PDER)
-            self.state = 127
+            self.state = 120
             self.match(miniPythonParser.NEWLINE)
         except RecognitionException as re:
             localctx.exception = re
@@ -992,6 +1284,20 @@ class miniPythonParser ( Parser ):
         def MENEQUAL(self):
             return self.getToken(miniPythonParser.MENEQUAL, 0)
 
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterAssignStatementMP" ):
+                listener.enterAssignStatementMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitAssignStatementMP" ):
+                listener.exitAssignStatementMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitAssignStatementMP" ):
+                return visitor.visitAssignStatementMP(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
     def assignStatement(self):
@@ -1002,18 +1308,18 @@ class miniPythonParser ( Parser ):
         try:
             localctx = miniPythonParser.AssignStatementMPContext(self, localctx)
             self.enterOuterAlt(localctx, 1)
-            self.state = 129
+            self.state = 122
             self.match(miniPythonParser.IDENTIFIER)
-            self.state = 130
+            self.state = 123
             _la = self._input.LA(1)
             if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << miniPythonParser.ASIGN) | (1 << miniPythonParser.MASEQUAL) | (1 << miniPythonParser.MENEQUAL))) != 0)):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
                 self.consume()
-            self.state = 131
+            self.state = 124
             self.expression()
-            self.state = 132
+            self.state = 125
             self.match(miniPythonParser.NEWLINE)
         except RecognitionException as re:
             localctx.exception = re
@@ -1060,6 +1366,20 @@ class miniPythonParser ( Parser ):
         def NEWLINE(self):
             return self.getToken(miniPythonParser.NEWLINE, 0)
 
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterFunctionCallStatementMP" ):
+                listener.enterFunctionCallStatementMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitFunctionCallStatementMP" ):
+                listener.exitFunctionCallStatementMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitFunctionCallStatementMP" ):
+                return visitor.visitFunctionCallStatementMP(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
     def functionCallStatement(self):
@@ -1069,15 +1389,15 @@ class miniPythonParser ( Parser ):
         try:
             localctx = miniPythonParser.FunctionCallStatementMPContext(self, localctx)
             self.enterOuterAlt(localctx, 1)
-            self.state = 134
+            self.state = 127
             self.primitiveExpression()
-            self.state = 135
+            self.state = 128
             self.match(miniPythonParser.PIZQ)
-            self.state = 136
+            self.state = 129
             self.expressionList()
-            self.state = 137
+            self.state = 130
             self.match(miniPythonParser.PDER)
-            self.state = 138
+            self.state = 131
             self.match(miniPythonParser.NEWLINE)
         except RecognitionException as re:
             localctx.exception = re
@@ -1117,6 +1437,20 @@ class miniPythonParser ( Parser ):
         def NEWLINE(self):
             return self.getToken(miniPythonParser.NEWLINE, 0)
 
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterExpressionStatementMP" ):
+                listener.enterExpressionStatementMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitExpressionStatementMP" ):
+                listener.exitExpressionStatementMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitExpressionStatementMP" ):
+                return visitor.visitExpressionStatementMP(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
     def expressionStatement(self):
@@ -1126,9 +1460,9 @@ class miniPythonParser ( Parser ):
         try:
             localctx = miniPythonParser.ExpressionStatementMPContext(self, localctx)
             self.enterOuterAlt(localctx, 1)
-            self.state = 140
+            self.state = 133
             self.expressionList()
-            self.state = 141
+            self.state = 134
             self.match(miniPythonParser.NEWLINE)
         except RecognitionException as re:
             localctx.exception = re
@@ -1170,6 +1504,20 @@ class miniPythonParser ( Parser ):
         def DEDENT(self):
             return self.getToken(miniPythonParser.DEDENT, 0)
 
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterSequenceMP" ):
+                listener.enterSequenceMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitSequenceMP" ):
+                listener.exitSequenceMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitSequenceMP" ):
+                return visitor.visitSequenceMP(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
     def sequence(self):
@@ -1179,11 +1527,11 @@ class miniPythonParser ( Parser ):
         try:
             localctx = miniPythonParser.SequenceMPContext(self, localctx)
             self.enterOuterAlt(localctx, 1)
-            self.state = 143
+            self.state = 136
             self.match(miniPythonParser.INDENT)
-            self.state = 144
+            self.state = 137
             self.moreStatements()
-            self.state = 145
+            self.state = 138
             self.match(miniPythonParser.DEDENT)
         except RecognitionException as re:
             localctx.exception = re
@@ -1224,6 +1572,20 @@ class miniPythonParser ( Parser ):
                 return self.getTypedRuleContext(miniPythonParser.StatementContext,i)
 
 
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterMoreStatementsMP" ):
+                listener.enterMoreStatementsMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitMoreStatementsMP" ):
+                listener.exitMoreStatementsMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitMoreStatementsMP" ):
+                return visitor.visitMoreStatementsMP(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
     def moreStatements(self):
@@ -1234,13 +1596,13 @@ class miniPythonParser ( Parser ):
         try:
             localctx = miniPythonParser.MoreStatementsMPContext(self, localctx)
             self.enterOuterAlt(localctx, 1)
-            self.state = 148 
+            self.state = 141 
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while True:
-                self.state = 147
+                self.state = 140
                 self.statement()
-                self.state = 150 
+                self.state = 143 
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 if not ((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << miniPythonParser.PIZQ) | (1 << miniPythonParser.CIZQ) | (1 << miniPythonParser.MEN) | (1 << miniPythonParser.IF) | (1 << miniPythonParser.WHILE) | (1 << miniPythonParser.DEF) | (1 << miniPythonParser.LEN) | (1 << miniPythonParser.FOR) | (1 << miniPythonParser.RETURN) | (1 << miniPythonParser.PRINT) | (1 << miniPythonParser.INTEGER) | (1 << miniPythonParser.IDENTIFIER) | (1 << miniPythonParser.STRING) | (1 << miniPythonParser.FLOAT) | (1 << miniPythonParser.CHARCONTS) | (1 << miniPythonParser.NEWLINE))) != 0)):
@@ -1262,17 +1624,42 @@ class miniPythonParser ( Parser ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
+
+        def getRuleIndex(self):
+            return miniPythonParser.RULE_expression
+
+     
+        def copyFrom(self, ctx:ParserRuleContext):
+            super().copyFrom(ctx)
+
+
+
+    class ExpressionMPContext(ExpressionContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a miniPythonParser.ExpressionContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
         def additionExpression(self):
             return self.getTypedRuleContext(miniPythonParser.AdditionExpressionContext,0)
-
 
         def comparison(self):
             return self.getTypedRuleContext(miniPythonParser.ComparisonContext,0)
 
 
-        def getRuleIndex(self):
-            return miniPythonParser.RULE_expression
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterExpressionMP" ):
+                listener.enterExpressionMP(self)
 
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitExpressionMP" ):
+                listener.exitExpressionMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitExpressionMP" ):
+                return visitor.visitExpressionMP(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -1281,10 +1668,11 @@ class miniPythonParser ( Parser ):
         localctx = miniPythonParser.ExpressionContext(self, self._ctx, self.state)
         self.enterRule(localctx, 30, self.RULE_expression)
         try:
+            localctx = miniPythonParser.ExpressionMPContext(self, localctx)
             self.enterOuterAlt(localctx, 1)
-            self.state = 152
+            self.state = 145
             self.additionExpression()
-            self.state = 153
+            self.state = 146
             self.comparison()
         except RecognitionException as re:
             localctx.exception = re
@@ -1360,6 +1748,20 @@ class miniPythonParser ( Parser ):
             else:
                 return self.getToken(miniPythonParser.EQUALEQUAL, i)
 
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterComparisonMP" ):
+                listener.enterComparisonMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitComparisonMP" ):
+                listener.exitComparisonMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitComparisonMP" ):
+                return visitor.visitComparisonMP(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
     def comparison(self):
@@ -1370,20 +1772,20 @@ class miniPythonParser ( Parser ):
         try:
             localctx = miniPythonParser.ComparisonMPContext(self, localctx)
             self.enterOuterAlt(localctx, 1)
-            self.state = 159
+            self.state = 152
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << miniPythonParser.MENQUE) | (1 << miniPythonParser.MAYQUE) | (1 << miniPythonParser.MENQUEEQUAL) | (1 << miniPythonParser.MAYQUEEQUAL) | (1 << miniPythonParser.EQUALEQUAL) | (1 << miniPythonParser.MULTEQUAL) | (1 << miniPythonParser.DIVEQUAL))) != 0):
-                self.state = 155
+                self.state = 148
                 _la = self._input.LA(1)
                 if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << miniPythonParser.MENQUE) | (1 << miniPythonParser.MAYQUE) | (1 << miniPythonParser.MENQUEEQUAL) | (1 << miniPythonParser.MAYQUEEQUAL) | (1 << miniPythonParser.EQUALEQUAL) | (1 << miniPythonParser.MULTEQUAL) | (1 << miniPythonParser.DIVEQUAL))) != 0)):
                     self._errHandler.recoverInline(self)
                 else:
                     self._errHandler.reportMatch(self)
                     self.consume()
-                self.state = 156
+                self.state = 149
                 self.additionExpression()
-                self.state = 161
+                self.state = 154
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
@@ -1426,6 +1828,20 @@ class miniPythonParser ( Parser ):
             return self.getTypedRuleContext(miniPythonParser.AdditionFactorContext,0)
 
 
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterAdditionExpressionMP" ):
+                listener.enterAdditionExpressionMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitAdditionExpressionMP" ):
+                listener.exitAdditionExpressionMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitAdditionExpressionMP" ):
+                return visitor.visitAdditionExpressionMP(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
     def additionExpression(self):
@@ -1435,9 +1851,9 @@ class miniPythonParser ( Parser ):
         try:
             localctx = miniPythonParser.AdditionExpressionMPContext(self, localctx)
             self.enterOuterAlt(localctx, 1)
-            self.state = 162
+            self.state = 155
             self.multiplicationExpression()
-            self.state = 163
+            self.state = 156
             self.additionFactor()
         except RecognitionException as re:
             localctx.exception = re
@@ -1488,6 +1904,20 @@ class miniPythonParser ( Parser ):
             else:
                 return self.getToken(miniPythonParser.MEN, i)
 
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterAdditionFactorMP" ):
+                listener.enterAdditionFactorMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitAdditionFactorMP" ):
+                listener.exitAdditionFactorMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitAdditionFactorMP" ):
+                return visitor.visitAdditionFactorMP(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
     def additionFactor(self):
@@ -1498,20 +1928,20 @@ class miniPythonParser ( Parser ):
         try:
             localctx = miniPythonParser.AdditionFactorMPContext(self, localctx)
             self.enterOuterAlt(localctx, 1)
-            self.state = 169
+            self.state = 162
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while _la==miniPythonParser.MAS or _la==miniPythonParser.MEN:
-                self.state = 165
+                self.state = 158
                 _la = self._input.LA(1)
                 if not(_la==miniPythonParser.MAS or _la==miniPythonParser.MEN):
                     self._errHandler.recoverInline(self)
                 else:
                     self._errHandler.reportMatch(self)
                     self.consume()
-                self.state = 166
+                self.state = 159
                 self.multiplicationExpression()
-                self.state = 171
+                self.state = 164
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
@@ -1554,6 +1984,20 @@ class miniPythonParser ( Parser ):
             return self.getTypedRuleContext(miniPythonParser.MultiplicationFactorContext,0)
 
 
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterMultiplicationExpressionMP" ):
+                listener.enterMultiplicationExpressionMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitMultiplicationExpressionMP" ):
+                listener.exitMultiplicationExpressionMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitMultiplicationExpressionMP" ):
+                return visitor.visitMultiplicationExpressionMP(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
     def multiplicationExpression(self):
@@ -1563,9 +2007,9 @@ class miniPythonParser ( Parser ):
         try:
             localctx = miniPythonParser.MultiplicationExpressionMPContext(self, localctx)
             self.enterOuterAlt(localctx, 1)
-            self.state = 172
+            self.state = 165
             self.elementExpression()
-            self.state = 173
+            self.state = 166
             self.multiplicationFactor()
         except RecognitionException as re:
             localctx.exception = re
@@ -1616,6 +2060,20 @@ class miniPythonParser ( Parser ):
             else:
                 return self.getToken(miniPythonParser.DIV, i)
 
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterMultiplicationFactorMP" ):
+                listener.enterMultiplicationFactorMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitMultiplicationFactorMP" ):
+                listener.exitMultiplicationFactorMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitMultiplicationFactorMP" ):
+                return visitor.visitMultiplicationFactorMP(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
     def multiplicationFactor(self):
@@ -1626,20 +2084,20 @@ class miniPythonParser ( Parser ):
         try:
             localctx = miniPythonParser.MultiplicationFactorMPContext(self, localctx)
             self.enterOuterAlt(localctx, 1)
-            self.state = 179
+            self.state = 172
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while _la==miniPythonParser.MULT or _la==miniPythonParser.DIV:
-                self.state = 175
+                self.state = 168
                 _la = self._input.LA(1)
                 if not(_la==miniPythonParser.MULT or _la==miniPythonParser.DIV):
                     self._errHandler.recoverInline(self)
                 else:
                     self._errHandler.reportMatch(self)
                     self.consume()
-                self.state = 176
+                self.state = 169
                 self.elementExpression()
-                self.state = 181
+                self.state = 174
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
@@ -1682,6 +2140,20 @@ class miniPythonParser ( Parser ):
             return self.getTypedRuleContext(miniPythonParser.ElementAccessContext,0)
 
 
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterElementExpressionMP" ):
+                listener.enterElementExpressionMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitElementExpressionMP" ):
+                listener.exitElementExpressionMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitElementExpressionMP" ):
+                return visitor.visitElementExpressionMP(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
     def elementExpression(self):
@@ -1691,18 +2163,18 @@ class miniPythonParser ( Parser ):
         try:
             localctx = miniPythonParser.ElementExpressionMPContext(self, localctx)
             self.enterOuterAlt(localctx, 1)
-            self.state = 186
+            self.state = 179
             self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input,9,self._ctx)
+            la_ = self._interp.adaptivePredict(self._input,8,self._ctx)
             if la_ == 1:
-                self.state = 182
+                self.state = 175
                 self.primitiveExpression()
-                self.state = 183
+                self.state = 176
                 self.elementAccess()
                 pass
 
             elif la_ == 2:
-                self.state = 185
+                self.state = 178
                 self.primitiveExpression()
                 pass
 
@@ -1756,6 +2228,20 @@ class miniPythonParser ( Parser ):
             else:
                 return self.getToken(miniPythonParser.CDER, i)
 
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterElementAccessMP" ):
+                listener.enterElementAccessMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitElementAccessMP" ):
+                listener.exitElementAccessMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitElementAccessMP" ):
+                return visitor.visitElementAccessMP(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
     def elementAccess(self):
@@ -1766,17 +2252,17 @@ class miniPythonParser ( Parser ):
         try:
             localctx = miniPythonParser.ElementAccessMPContext(self, localctx)
             self.enterOuterAlt(localctx, 1)
-            self.state = 192 
+            self.state = 185 
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while True:
-                self.state = 188
+                self.state = 181
                 self.match(miniPythonParser.CIZQ)
-                self.state = 189
+                self.state = 182
                 self.expression()
-                self.state = 190
+                self.state = 183
                 self.match(miniPythonParser.CDER)
-                self.state = 194 
+                self.state = 187 
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 if not (_la==miniPythonParser.CIZQ):
@@ -1821,6 +2307,20 @@ class miniPythonParser ( Parser ):
             return self.getTypedRuleContext(miniPythonParser.MoreExpressionsContext,0)
 
 
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterExpressionListMP" ):
+                listener.enterExpressionListMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitExpressionListMP" ):
+                listener.exitExpressionListMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitExpressionListMP" ):
+                return visitor.visitExpressionListMP(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
     def expressionList(self):
@@ -1830,13 +2330,13 @@ class miniPythonParser ( Parser ):
         try:
             localctx = miniPythonParser.ExpressionListMPContext(self, localctx)
             self.enterOuterAlt(localctx, 1)
-            self.state = 200
+            self.state = 193
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [miniPythonParser.PIZQ, miniPythonParser.CIZQ, miniPythonParser.MEN, miniPythonParser.LEN, miniPythonParser.INTEGER, miniPythonParser.IDENTIFIER, miniPythonParser.STRING, miniPythonParser.FLOAT, miniPythonParser.CHARCONTS]:
-                self.state = 196
+                self.state = 189
                 self.expression()
-                self.state = 197
+                self.state = 190
                 self.moreExpressions()
                 pass
             elif token in [miniPythonParser.PDER, miniPythonParser.CDER, miniPythonParser.DOSPUNT, miniPythonParser.NEWLINE]:
@@ -1888,6 +2388,20 @@ class miniPythonParser ( Parser ):
                 return self.getTypedRuleContext(miniPythonParser.ExpressionContext,i)
 
 
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterMoreExpressionsMP" ):
+                listener.enterMoreExpressionsMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitMoreExpressionsMP" ):
+                listener.exitMoreExpressionsMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitMoreExpressionsMP" ):
+                return visitor.visitMoreExpressionsMP(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
     def moreExpressions(self):
@@ -1898,15 +2412,15 @@ class miniPythonParser ( Parser ):
         try:
             localctx = miniPythonParser.MoreExpressionsMPContext(self, localctx)
             self.enterOuterAlt(localctx, 1)
-            self.state = 206
+            self.state = 199
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while _la==miniPythonParser.COMA:
-                self.state = 202
+                self.state = 195
                 self.match(miniPythonParser.COMA)
-                self.state = 203
+                self.state = 196
                 self.expression()
-                self.state = 208
+                self.state = 201
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
@@ -1936,7 +2450,7 @@ class miniPythonParser ( Parser ):
 
 
 
-    class PrimitiveExpressionMPContext(PrimitiveExpressionContext):
+    class IntegersMPContext(PrimitiveExpressionContext):
 
         def __init__(self, parser, ctx:ParserRuleContext): # actually a miniPythonParser.PrimitiveExpressionContext
             super().__init__(parser)
@@ -1944,14 +2458,30 @@ class miniPythonParser ( Parser ):
 
         def INTEGER(self):
             return self.getToken(miniPythonParser.INTEGER, 0)
-        def FLOAT(self):
-            return self.getToken(miniPythonParser.FLOAT, 0)
-        def CHARCONTS(self):
-            return self.getToken(miniPythonParser.CHARCONTS, 0)
-        def STRING(self):
-            return self.getToken(miniPythonParser.STRING, 0)
-        def IDENTIFIER(self):
-            return self.getToken(miniPythonParser.IDENTIFIER, 0)
+        def MEN(self):
+            return self.getToken(miniPythonParser.MEN, 0)
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterIntegersMP" ):
+                listener.enterIntegersMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitIntegersMP" ):
+                listener.exitIntegersMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitIntegersMP" ):
+                return visitor.visitIntegersMP(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+    class ParenthesisExpressionMPContext(PrimitiveExpressionContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a miniPythonParser.PrimitiveExpressionContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
         def PIZQ(self):
             return self.getToken(miniPythonParser.PIZQ, 0)
         def expression(self):
@@ -1959,16 +2489,181 @@ class miniPythonParser ( Parser ):
 
         def PDER(self):
             return self.getToken(miniPythonParser.PDER, 0)
-        def listExpression(self):
-            return self.getTypedRuleContext(miniPythonParser.ListExpressionContext,0)
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterParenthesisExpressionMP" ):
+                listener.enterParenthesisExpressionMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitParenthesisExpressionMP" ):
+                listener.exitParenthesisExpressionMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitParenthesisExpressionMP" ):
+                return visitor.visitParenthesisExpressionMP(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+    class ChartsMPContext(PrimitiveExpressionContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a miniPythonParser.PrimitiveExpressionContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+        def CHARCONTS(self):
+            return self.getToken(miniPythonParser.CHARCONTS, 0)
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterChartsMP" ):
+                listener.enterChartsMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitChartsMP" ):
+                listener.exitChartsMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitChartsMP" ):
+                return visitor.visitChartsMP(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+    class FloatsMPContext(PrimitiveExpressionContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a miniPythonParser.PrimitiveExpressionContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+        def FLOAT(self):
+            return self.getToken(miniPythonParser.FLOAT, 0)
+        def MEN(self):
+            return self.getToken(miniPythonParser.MEN, 0)
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterFloatsMP" ):
+                listener.enterFloatsMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitFloatsMP" ):
+                listener.exitFloatsMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitFloatsMP" ):
+                return visitor.visitFloatsMP(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+    class PrimitiveExpressionMPContext(PrimitiveExpressionContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a miniPythonParser.PrimitiveExpressionContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
 
         def LEN(self):
             return self.getToken(miniPythonParser.LEN, 0)
+        def PIZQ(self):
+            return self.getToken(miniPythonParser.PIZQ, 0)
+        def expression(self):
+            return self.getTypedRuleContext(miniPythonParser.ExpressionContext,0)
+
+        def PDER(self):
+            return self.getToken(miniPythonParser.PDER, 0)
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterPrimitiveExpressionMP" ):
+                listener.enterPrimitiveExpressionMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitPrimitiveExpressionMP" ):
+                listener.exitPrimitiveExpressionMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitPrimitiveExpressionMP" ):
+                return visitor.visitPrimitiveExpressionMP(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+    class IdentifierMPContext(PrimitiveExpressionContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a miniPythonParser.PrimitiveExpressionContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+        def IDENTIFIER(self):
+            return self.getToken(miniPythonParser.IDENTIFIER, 0)
+        def PIZQ(self):
+            return self.getToken(miniPythonParser.PIZQ, 0)
         def expressionList(self):
             return self.getTypedRuleContext(miniPythonParser.ExpressionListContext,0)
 
-        def MEN(self):
-            return self.getToken(miniPythonParser.MEN, 0)
+        def PDER(self):
+            return self.getToken(miniPythonParser.PDER, 0)
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterIdentifierMP" ):
+                listener.enterIdentifierMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitIdentifierMP" ):
+                listener.exitIdentifierMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitIdentifierMP" ):
+                return visitor.visitIdentifierMP(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+    class StringsMPContext(PrimitiveExpressionContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a miniPythonParser.PrimitiveExpressionContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+        def STRING(self):
+            return self.getToken(miniPythonParser.STRING, 0)
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterStringsMP" ):
+                listener.enterStringsMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitStringsMP" ):
+                listener.exitStringsMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitStringsMP" ):
+                return visitor.visitStringsMP(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+    class ListExpMPContext(PrimitiveExpressionContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a miniPythonParser.PrimitiveExpressionContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+        def listExpression(self):
+            return self.getTypedRuleContext(miniPythonParser.ListExpressionContext,0)
+
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterListExpMP" ):
+                listener.enterListExpMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitListExpMP" ):
+                listener.exitListExpMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitListExpMP" ):
+                return visitor.visitListExpMP(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -1978,59 +2673,67 @@ class miniPythonParser ( Parser ):
         self.enterRule(localctx, 50, self.RULE_primitiveExpression)
         self._la = 0 # Token type
         try:
-            localctx = miniPythonParser.PrimitiveExpressionMPContext(self, localctx)
-            self.enterOuterAlt(localctx, 1)
-            self.state = 237
+            self.state = 230
             self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input,16,self._ctx)
+            la_ = self._interp.adaptivePredict(self._input,15,self._ctx)
             if la_ == 1:
-                self.state = 210
+                localctx = miniPythonParser.IntegersMPContext(self, localctx)
+                self.enterOuterAlt(localctx, 1)
+                self.state = 203
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 if _la==miniPythonParser.MEN:
-                    self.state = 209
+                    self.state = 202
                     self.match(miniPythonParser.MEN)
 
 
-                self.state = 212
+                self.state = 205
                 self.match(miniPythonParser.INTEGER)
                 pass
 
             elif la_ == 2:
-                self.state = 214
+                localctx = miniPythonParser.FloatsMPContext(self, localctx)
+                self.enterOuterAlt(localctx, 2)
+                self.state = 207
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 if _la==miniPythonParser.MEN:
-                    self.state = 213
+                    self.state = 206
                     self.match(miniPythonParser.MEN)
 
 
-                self.state = 216
+                self.state = 209
                 self.match(miniPythonParser.FLOAT)
                 pass
 
             elif la_ == 3:
-                self.state = 217
+                localctx = miniPythonParser.ChartsMPContext(self, localctx)
+                self.enterOuterAlt(localctx, 3)
+                self.state = 210
                 self.match(miniPythonParser.CHARCONTS)
                 pass
 
             elif la_ == 4:
-                self.state = 218
+                localctx = miniPythonParser.StringsMPContext(self, localctx)
+                self.enterOuterAlt(localctx, 4)
+                self.state = 211
                 self.match(miniPythonParser.STRING)
                 pass
 
             elif la_ == 5:
-                self.state = 219
+                localctx = miniPythonParser.IdentifierMPContext(self, localctx)
+                self.enterOuterAlt(localctx, 5)
+                self.state = 212
                 self.match(miniPythonParser.IDENTIFIER)
-                self.state = 225
+                self.state = 218
                 self._errHandler.sync(self)
-                la_ = self._interp.adaptivePredict(self._input,15,self._ctx)
+                la_ = self._interp.adaptivePredict(self._input,14,self._ctx)
                 if la_ == 1:
-                    self.state = 220
+                    self.state = 213
                     self.match(miniPythonParser.PIZQ)
-                    self.state = 221
+                    self.state = 214
                     self.expressionList()
-                    self.state = 222
+                    self.state = 215
                     self.match(miniPythonParser.PDER)
                     pass
 
@@ -2041,27 +2744,33 @@ class miniPythonParser ( Parser ):
                 pass
 
             elif la_ == 6:
-                self.state = 227
+                localctx = miniPythonParser.ParenthesisExpressionMPContext(self, localctx)
+                self.enterOuterAlt(localctx, 6)
+                self.state = 220
                 self.match(miniPythonParser.PIZQ)
-                self.state = 228
+                self.state = 221
                 self.expression()
-                self.state = 229
+                self.state = 222
                 self.match(miniPythonParser.PDER)
                 pass
 
             elif la_ == 7:
-                self.state = 231
+                localctx = miniPythonParser.ListExpMPContext(self, localctx)
+                self.enterOuterAlt(localctx, 7)
+                self.state = 224
                 self.listExpression()
                 pass
 
             elif la_ == 8:
-                self.state = 232
+                localctx = miniPythonParser.PrimitiveExpressionMPContext(self, localctx)
+                self.enterOuterAlt(localctx, 8)
+                self.state = 225
                 self.match(miniPythonParser.LEN)
-                self.state = 233
+                self.state = 226
                 self.match(miniPythonParser.PIZQ)
-                self.state = 234
+                self.state = 227
                 self.expression()
-                self.state = 235
+                self.state = 228
                 self.match(miniPythonParser.PDER)
                 pass
 
@@ -2106,6 +2815,20 @@ class miniPythonParser ( Parser ):
         def CDER(self):
             return self.getToken(miniPythonParser.CDER, 0)
 
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterListExpressionMP" ):
+                listener.enterListExpressionMP(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitListExpressionMP" ):
+                listener.exitListExpressionMP(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitListExpressionMP" ):
+                return visitor.visitListExpressionMP(self)
+            else:
+                return visitor.visitChildren(self)
+
 
 
     def listExpression(self):
@@ -2115,11 +2838,11 @@ class miniPythonParser ( Parser ):
         try:
             localctx = miniPythonParser.ListExpressionMPContext(self, localctx)
             self.enterOuterAlt(localctx, 1)
-            self.state = 239
+            self.state = 232
             self.match(miniPythonParser.CIZQ)
-            self.state = 240
+            self.state = 233
             self.expressionList()
-            self.state = 241
+            self.state = 234
             self.match(miniPythonParser.CDER)
         except RecognitionException as re:
             localctx.exception = re
