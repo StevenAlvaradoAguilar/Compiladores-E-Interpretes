@@ -83,7 +83,7 @@ MASEQUAL : '+=';
 MENEQUAL : '-=';
 MULTEQUAL : '*=';
 DIVEQUAL : '/=';
-HASH  : '\n';
+HASH  : '\\';
 
 //palabras reservadas
 IF : 'if';
@@ -119,7 +119,7 @@ fragment DIGITNOTZERO : [1-9];
 fragment SIMBOLS : COMA | PyCOMA | ASIGN | PIZQ | PDER | CIZQ | CDER | VIR | DOSPUNT | MAS | MULT | ' '|
 MEN | DIV | POT | MOD | MENQUE | MAYQUE | MENQUEEQUAL | MAYQUEEQUAL | EQUALEQUAL | ASIGN | MASEQUAL | MENEQUAL |
 MULTEQUAL | DIVEQUAL | HASH;
-fragment SPECIALSIMBOLS : '!' | '#' | '$' | '^' | '&' | '_' | '?' | '%' | '`' | '@' | '¿' | 'ñ';
+fragment SPECIALSIMBOLS : '!' | '#' | '$' | '^' | '&' | '_' | '?' | '%' | '@' | '¿';
 
 NEWLINE: ('\r'? '\n' (' ' | '\t') *); //For tabs just switch out ' '* with '\t'*
 

@@ -16,7 +16,6 @@ def calcularFac(num):
 ventas = [100,200,300,400,500,-3.14]
 
 Caracter = '%'
-Caracter()
 
 #promedio de elementos
 def promedio(cualquier_arreglo):
@@ -43,7 +42,7 @@ def calcularpromedioventas():
 print("Calculo del Factorial:%$ " + calcularFac(6))
 calcularpromedioventas()
 
-#Estos son para validar errores
+#Estos ejemplos son para validar errores
 def calcularpromedioventas():
     prom = promedio(len(ventas))
     print("El promedio de las ventas es: ")
@@ -54,6 +53,6 @@ promediosPo()
 
 x = 0
 for x in puntoAlto:
-    x = 6
+    x = 6 + m
 
-
+Caracter()
