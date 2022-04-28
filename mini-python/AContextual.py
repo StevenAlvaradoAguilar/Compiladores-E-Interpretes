@@ -88,6 +88,12 @@ class AContextual(miniPythonVisitor):
     # Visit a parse tree produced by miniPythonParser#whileStatementMP.
     def visitWhileStatementMP(self, ctx: miniPythonParser.WhileStatementMPContext):
         self.visit(ctx.expression())
+        # Validaciones de errores
+        x = ctx.expression().getText()
+        if '"' in x:
+            print("Error no se puede llamar a un identificador con parentesis dobles ", x, file=sys.stderr)
+        if "'" in x:
+            print("Error no se puede llamar a un identificador con parentesis simples ", x, file=sys.stderr)
         self.laTabla.openScope()
         self.visit(ctx.sequence())
         self.laTabla.closeScope()
@@ -130,6 +136,18 @@ class AContextual(miniPythonVisitor):
             print("La función no ha sido declarada " + ctx.primitiveExpression().getText(), file=sys.stderr)
         if ctx.expressionList().expression() is not None:
             print(ctx.expressionList().moreExpressions().expression()[0].getText())
+            # print("Los parámetros ingresados son erroneos " + ctx.expressionList().getText(), file=sys.stderr)
+        # Validaciones de errores
+        x = ctx.primitiveExpression().getText()
+        if '"' in x:
+            print("Error no se puede llamar a funciones con parentesis dobles ", x, file=sys.stderr)
+        if "'" in x:
+            print("Error no se puede llamar a funciones con parentesis simples ", x, file=sys.stderr)
+        listNumber = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+        for m in listNumber:
+            if m in x:
+                print("Error no se puede llamar a funciones con un numero", x, file=sys.stderr)
+
         return self.visitChildren(ctx)
 
     # Visit a parse tree produced by miniPythonParser#expressionStatementMP.
@@ -207,19 +225,29 @@ class AContextual(miniPythonVisitor):
     # Visit a parse tree produced by miniPythonParser#elementExpressionMP.
     def visitElementExpressionMP(self, ctx: miniPythonParser.ElementExpressionMPContext):
         """
-        Este método que da de está forma ya que el visitChildren visita
-        a todos.
+        Validaciones de errores de 3[2], “hola”[x], ‘a’(3,5),
         """
+        if ctx.elementAccess() is not None:
+            validarElem = ctx.primitiveExpression().getText()
+            if '"' in validarElem:
+                print("Error no se puede llamar a funciones con parentesis dobles ", file=sys.stderr)
+            if "'" in validarElem:
+                print("Error no se puede llamar a funciones con parentesis simples ", file=sys.stderr)
+            listNumber = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+            for i in listNumber:
+                if i in validarElem:
+                    print("Error no se puede llamar a funciones con un numero", file=sys.stderr)
         return self.visitChildren(ctx)
 
     # Visit a parse tree produced by miniPythonParser#elementAccessMP.
     def visitElementAccessMP(self, ctx: miniPythonParser.ElementAccessMPContext):
-        """
-        Este método que da de está forma ya que el visitChildren visita
-        a todos.
-        """
-        if ctx.expression() is not None:
-            return self.visitChildren(ctx)
+        temporal = ""
+        for x in ctx.expression():
+            temporal = x.getText()
+            # hacer un buscar
+            if self.laTabla.buscar(temporal) is None:
+                print("Error la variable no hay sido declarada " + temporal, file=sys.stderr)
+        return self.visitChildren(ctx)
 
     # Visit a parse tree produced by miniPythonParser#expressionListMP.
     def visitExpressionListMP(self, ctx: miniPythonParser.ExpressionListMPContext):

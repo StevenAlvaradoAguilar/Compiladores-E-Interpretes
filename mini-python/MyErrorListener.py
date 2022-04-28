@@ -1,9 +1,7 @@
-from io import StringIO
-
 from antlr4.error.ErrorListener import *
 
-from generated.miniPythonParser import miniPythonParser
 from generated.miniPythonLexer import miniPythonLexer
+from generated.miniPythonParser import miniPythonParser
 
 
 class MyErrorListener(ErrorListener):
