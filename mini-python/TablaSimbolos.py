@@ -50,7 +50,4 @@ class TablaSimbolos:
         tablaCopy = self.tabla.copy()
         for i in tablaCopy:
             print("Nombre: " + i.identifier + " - " + i.nivel)
-            ''' if (s.getType() == 0) print("\tTipo: Indefinido");
-            else if (s.getType() == 1) print("\tTipo: Integer\n");'''
-
         print("----- FIN TABLA ------")

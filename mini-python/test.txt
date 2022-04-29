@@ -55,4 +55,6 @@ x = 0
 for x in puntoAlto:
     x = 6 + m
 
-Caracter()
+listaEjem1 = ["hola","oveja"]
+for x in listaEjem1:
+    print(x)

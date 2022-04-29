@@ -33,8 +33,6 @@ class AContextual(miniPythonVisitor):
         for i in ctx.statement():
             if ctx.statement() is not None:
                 self.visit(i)
-        # self.laTabla.closeScope()
-        # self.laTabla.imprimir()
         return
         # return self.visitChildren(ctx)
 
@@ -46,6 +44,7 @@ class AContextual(miniPythonVisitor):
     # Visit a parse tree produced by miniPythonParser#defStatementMP.
     def visitDefStatementMP(self, ctx: miniPythonParser.DefStatementMPContext):
         # print(ctx.IDENTIFIER().getText())
+
         contador = 0
         m = self.laTabla.buscar(ctx.IDENTIFIER().getText())
         # saca todos los parámetros
@@ -57,7 +56,7 @@ class AContextual(miniPythonVisitor):
             if m.isMethod:
                 print("La función ya ha sido declarada " + ctx.IDENTIFIER().getText(), file=sys.stderr)
             else:
-                print("El identificador no es un método")
+                print("El identificador no es un método " + ctx.IDENTIFIER().getText(), file=sys.stderr)
         else:
             self.laTabla.insertar(ctx.IDENTIFIER().getText(), contador, True, "Declaración de Función")
         self.visit(ctx.argList())
@@ -76,6 +75,13 @@ class AContextual(miniPythonVisitor):
     # Visit a parse tree produced by miniPythonParser#ifStatementMP.
     def visitIfStatementMP(self, ctx: miniPythonParser.IfStatementMPContext):
         self.visit(ctx.expression())
+        if ctx.expression().getText is not None:
+            # Validaciones de errores del if
+            validationsF = ctx.expression().getText()
+            if '"' in validationsF:
+                print("Error no se puede poner parentesis dobles ", validationsF, file=sys.stderr)
+            if "'" in validationsF:
+                print("Error no se puede poner parentesis simples ", validationsF, file=sys.stderr)
         self.laTabla.openScope()
         self.visit(ctx.sequence()[0])
         self.laTabla.closeScope()
@@ -88,12 +94,12 @@ class AContextual(miniPythonVisitor):
     # Visit a parse tree produced by miniPythonParser#whileStatementMP.
     def visitWhileStatementMP(self, ctx: miniPythonParser.WhileStatementMPContext):
         self.visit(ctx.expression())
-        # Validaciones de errores
-        x = ctx.expression().getText()
-        if '"' in x:
-            print("Error no se puede llamar a un identificador con parentesis dobles ", x, file=sys.stderr)
-        if "'" in x:
-            print("Error no se puede llamar a un identificador con parentesis simples ", x, file=sys.stderr)
+        # Validaciones de errores del while
+        validationsW = ctx.expression().getText()
+        if '"' in validationsW:
+            print("Error no se puede poner parentesis dobles ", validationsW, file=sys.stderr)
+        if "'" in validationsW:
+            print("Error no se puede puede poner parentesis simples ", validationsW, file=sys.stderr)
         self.laTabla.openScope()
         self.visit(ctx.sequence())
         self.laTabla.closeScope()
@@ -103,10 +109,23 @@ class AContextual(miniPythonVisitor):
     def visitForStatementMP(self, ctx: miniPythonParser.ForStatementMPContext):
         if ctx.expression() is not None:
             self.visit(ctx.expression())
+            # Validaciones de errores
+            validationFor = ctx.expression().getText()
+            if '"' in validationFor:
+                print("Error no se puede llamar a funciones con parentesis dobles ", validationFor, file=sys.stderr)
+            if "'" in validationFor:
+                print("Error no se puede llamar a funciones con parentesis simples ", validationFor, file=sys.stderr)
+            listNumber = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+            for m in listNumber:
+                if m in validationFor:
+                    print("Error no se puede llamar a funciones con un numero", validationFor, file=sys.stderr)
+
             self.visit(ctx.expressionList())
             self.laTabla.openScope()
             self.visit(ctx.sequence())
             self.laTabla.closeScope()
+            # self.laTabla.insertar(ctx.expression(), 0, False, ctx.expressionList())
+            # self.laTabla.imprimir()
             return self.visitChildren(ctx)
 
     # Visit a parse tree produced by miniPythonParser#returnStatementMP.
@@ -138,15 +157,15 @@ class AContextual(miniPythonVisitor):
             print(ctx.expressionList().moreExpressions().expression()[0].getText())
             # print("Los parámetros ingresados son erroneos " + ctx.expressionList().getText(), file=sys.stderr)
         # Validaciones de errores
-        x = ctx.primitiveExpression().getText()
-        if '"' in x:
-            print("Error no se puede llamar a funciones con parentesis dobles ", x, file=sys.stderr)
-        if "'" in x:
-            print("Error no se puede llamar a funciones con parentesis simples ", x, file=sys.stderr)
+        validationFunctionCall = ctx.primitiveExpression().getText()
+        if '"' in validationFunctionCall:
+            print("Error no se puede llamar a funciones con parentesis dobles ", validationFunctionCall, file=sys.stderr)
+        if "'" in validationFunctionCall:
+            print("Error no se puede llamar a funciones con parentesis simples ", validationFunctionCall, file=sys.stderr)
         listNumber = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
         for m in listNumber:
-            if m in x:
-                print("Error no se puede llamar a funciones con un numero", x, file=sys.stderr)
+            if m in validationFunctionCall:
+                print("Error no se puede llamar a funciones con un numero", validationFunctionCall, file=sys.stderr)
 
         return self.visitChildren(ctx)
 
@@ -241,13 +260,17 @@ class AContextual(miniPythonVisitor):
 
     # Visit a parse tree produced by miniPythonParser#elementAccessMP.
     def visitElementAccessMP(self, ctx: miniPythonParser.ElementAccessMPContext):
+        print(ctx.expression()[0].getText())
         temporal = ""
-        for x in ctx.expression():
-            temporal = x.getText()
-            # hacer un buscar
-            if self.laTabla.buscar(temporal) is None:
-                print("Error la variable no hay sido declarada " + temporal, file=sys.stderr)
-        return self.visitChildren(ctx)
+        if ctx.expression() is not None:
+            for x in ctx.expression():
+                temporal = x.getText()
+                # hacer un buscar
+                self.laTabla.insertar(temporal, 0, False, ctx.expression())  # verificar
+                # self.laTabla.imprimir()
+                if self.laTabla.buscar(temporal) is None:
+                    print("Error la variable no hay sido declarada " + temporal, file=sys.stderr)
+            return self.visitChildren(ctx)
 
     # Visit a parse tree produced by miniPythonParser#expressionListMP.
     def visitExpressionListMP(self, ctx: miniPythonParser.ExpressionListMPContext):

@@ -30,7 +30,7 @@ if __name__ == "__main__":
         mv = AContextual()
         mv.visit(tree)
 
-        if not (errorListener.hasError() and mv.hasErrors()):
+        if (not errorListener.hasError()) and (not mv.hasErrors()):
             print("Compilación Exitosa!!!")
         else:
             print("Compilación Fallida!!!")
@@ -42,4 +42,4 @@ if __name__ == "__main__":
     except RecognitionException:
         print("No hay archivo")
         # print(e.with_traceback())
-        var = RecognitionException.__traceback__
+        var = RecognitionException.__traceback__()
