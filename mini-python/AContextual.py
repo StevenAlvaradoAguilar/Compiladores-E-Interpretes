@@ -54,9 +54,11 @@ class AContextual(miniPythonVisitor):
 
         if m is not None:
             if m.isMethod:
-                print("La función ya ha sido declarada " + ctx.IDENTIFIER().getText(), file=sys.stderr)
+                # print("La función ya ha sido declarada " + ctx.IDENTIFIER().getText(), file=sys.stderr)
+                pass
             else:
-                print("El identificador no es un método " + ctx.IDENTIFIER().getText(), file=sys.stderr)
+                # print("El identificador no es un método " + ctx.IDENTIFIER().getText(), file=sys.stderr)
+                pass
         else:
             self.laTabla.insertar(ctx.IDENTIFIER().getText(), contador, True, "Declaración de Función")
         self.visit(ctx.argList())
@@ -260,7 +262,7 @@ class AContextual(miniPythonVisitor):
 
     # Visit a parse tree produced by miniPythonParser#elementAccessMP.
     def visitElementAccessMP(self, ctx: miniPythonParser.ElementAccessMPContext):
-        print(ctx.expression()[0].getText())
+        #print(ctx.expression()[0].getText())
         temporal = ""
         if ctx.expression() is not None:
             for x in ctx.expression():

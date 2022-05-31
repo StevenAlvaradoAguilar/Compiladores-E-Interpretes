@@ -24,7 +24,7 @@ def nextToken(self):
 }
 
 //el DEDENT debe llevar antes un NEWLINE
-program : statement (statement)*                                                                   #programMP;
+program : statement (statement)*                                                                       #programMP;
 statement : (defStatement | ifStatement | returnStatement | printStatement | whileStatement
             | forStatement | assignStatement | functionCallStatement | expressionStatement)        #statementMP;
 defStatement : DEF IDENTIFIER PIZQ argList PDER DOSPUNT sequence                                   #defStatementMP;

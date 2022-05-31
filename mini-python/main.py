@@ -1,4 +1,5 @@
 import sys
+import os
 
 from antlr4 import FileStream, CommonTokenStream
 
@@ -6,10 +7,14 @@ sys.path.append('./generated')
 
 from AContextual import *
 from MyErrorListener import *
+from codeGen import codeGen
 
 # Main para errores.
 if __name__ == "__main__":
-    input = FileStream('test.txt')
+    # input = FileStream('test.txt')
+    # input = FileStream('pruebaContextual.txt')
+    # input = FileStream('test2.txt')
+    input = FileStream('Tarea5.txt')
     lexer = miniPythonLexer(input)
 
     try:
@@ -28,7 +33,11 @@ if __name__ == "__main__":
         tree = parser.program()
 
         mv = AContextual()
+        v = codeGen()
         mv.visit(tree)
+        v.visit(tree)
+
+        os.system("MiniPY Tarea5.txt")
 
         if (not errorListener.hasError()) and (not mv.hasErrors()):
             print("Compilación Exitosa!!!")

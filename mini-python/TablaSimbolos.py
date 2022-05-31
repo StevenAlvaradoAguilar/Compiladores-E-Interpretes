@@ -1,3 +1,5 @@
+from antlr4 import *
+
 class TablaSimbolos:
 
     tabla = []
@@ -5,6 +7,7 @@ class TablaSimbolos:
     nivelActual = 0
 
     class Ident:
+        tok: Token
 
         def __init__(self, identifier, params, isMethod, decl):
             self.identifier = identifier
@@ -19,6 +22,8 @@ class TablaSimbolos:
     def __init__(self):
         TablaSimbolos.tabla = []
         TablaSimbolos.nivelActual = - 1
+
+    # ----------------METODOS------------------
 
     def insertar(self, identifier, params, isMethod, decl):
         # no se puede insertar un elemento repetido en el mismo nivel
