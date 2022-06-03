@@ -119,8 +119,10 @@ class codeGen(miniPythonVisitor):
     def visitFunctionCallStatementMP(self, ctx: miniPythonParser.FunctionCallStatementMPContext):
         cant_params = 0
         if (ctx.expressionList()):
-            cant_params = self.visit(ctx.expressionList())
-        self.generate("LOAD_GLOBAL", str(cant_params))
+            if(ctx.expressionList().moreExpressions()):
+                if (ctx.expressionList().moreExpressions().expression()):
+                    cant_params = len(ctx.expressionList().moreExpressions().expression)
+        self.generate("LOAD_GLOBAL", ctx.primitiveExpression().getText())
         self.generate("CALL_FUNCTION", str(cant_params))
         self.visit(ctx.primitiveExpression())
         return None
@@ -258,16 +260,13 @@ class codeGen(miniPythonVisitor):
 
     # Visit a parse tree produced by miniPythonParser#primitiveExpressionMP.
     def visitPrimitiveExpressionMP(self, ctx: miniPythonParser.PrimitiveExpressionMPContext):
-        if(ctx.expressionList() == ctx.IDENTIFIER()):
-            self.generate("LOAD_CONST", ctx.IDENTIFIER())
-        elif(ctx.expressionList() == None):
+        if(ctx.INTEGER() or ctx.FLOAT() or ctx.CHARCONTS() or ctx.STRING()):
+            self.generate("LOAD_CONST", ctx.getText())
+        elif(ctx.PDER() == None and ctx.IDENTIFIER() != None and ctx.expression() == None and ctx.expressionList() == None):
             # Deberíamos saber si es FAST o GLOBAL
             self.generate("LOAD_FAST", ctx.IDENTIFIER().getText())
             # self.generate("CALL_FUNCTION", ctx.IDENTIFIER().getText())
-        else:
-            cant_params = self.visit(ctx.expressionList())
-            self.generate("LOAD_GLOBAL", ctx.IDENTIFIER().getText())
-            self.generate("CALL_FUNCTION", "0")
+
         return
 
     # Visit a parse tree produced by miniPythonParser#listExpressionMP.
