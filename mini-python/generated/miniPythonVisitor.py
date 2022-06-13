@@ -1,4 +1,4 @@
-# Generated from D:/Universidad/Compiladores_e_Interpretes/Compiladores-E-Interpretes/mini-python\miniPython.g4 by ANTLR 4.10.1
+# Generated from D:/Universidad/Compiladores_e_Interpretes/Compiladores-E-Interpretes/mini-python\miniPython.g4 by ANTLR 4.9.2
 from antlr4 import *
 if __name__ is not None and "." in __name__:
     from .miniPythonParser import miniPythonParser
@@ -14,53 +14,14 @@ class miniPythonVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by miniPythonParser#defStat.
-    def visitDefStat(self, ctx:miniPythonParser.DefStatContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by miniPythonParser#ifStat.
-    def visitIfStat(self, ctx:miniPythonParser.IfStatContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by miniPythonParser#returnStat.
-    def visitReturnStat(self, ctx:miniPythonParser.ReturnStatContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by miniPythonParser#printStat.
-    def visitPrintStat(self, ctx:miniPythonParser.PrintStatContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by miniPythonParser#whileStat.
-    def visitWhileStat(self, ctx:miniPythonParser.WhileStatContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by miniPythonParser#forStat.
-    def visitForStat(self, ctx:miniPythonParser.ForStatContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by miniPythonParser#assignStat.
-    def visitAssignStat(self, ctx:miniPythonParser.AssignStatContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by miniPythonParser#functionCallStat.
-    def visitFunctionCallStat(self, ctx:miniPythonParser.FunctionCallStatContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by miniPythonParser#expressionSt.
-    def visitExpressionSt(self, ctx:miniPythonParser.ExpressionStContext):
+    # Visit a parse tree produced by miniPythonParser#statementMP.
+    def visitStatementMP(self, ctx:miniPythonParser.StatementMPContext):
         return self.visitChildren(ctx)
 
 
     # Visit a parse tree produced by miniPythonParser#defStatementMP.
     def visitDefStatementMP(self, ctx:miniPythonParser.DefStatementMPContext):
+        print(ctx.getText())
         return self.visitChildren(ctx)
 
 
@@ -124,8 +85,8 @@ class miniPythonVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by miniPythonParser#expressionMP.
-    def visitExpressionMP(self, ctx:miniPythonParser.ExpressionMPContext):
+    # Visit a parse tree produced by miniPythonParser#expression.
+    def visitExpression(self, ctx:miniPythonParser.ExpressionContext):
         return self.visitChildren(ctx)
 
 
@@ -171,41 +132,6 @@ class miniPythonVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by miniPythonParser#moreExpressionsMP.
     def visitMoreExpressionsMP(self, ctx:miniPythonParser.MoreExpressionsMPContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by miniPythonParser#integersMP.
-    def visitIntegersMP(self, ctx:miniPythonParser.IntegersMPContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by miniPythonParser#floatsMP.
-    def visitFloatsMP(self, ctx:miniPythonParser.FloatsMPContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by miniPythonParser#chartsMP.
-    def visitChartsMP(self, ctx:miniPythonParser.ChartsMPContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by miniPythonParser#stringsMP.
-    def visitStringsMP(self, ctx:miniPythonParser.StringsMPContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by miniPythonParser#identifierMP.
-    def visitIdentifierMP(self, ctx:miniPythonParser.IdentifierMPContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by miniPythonParser#parenthesisExpressionMP.
-    def visitParenthesisExpressionMP(self, ctx:miniPythonParser.ParenthesisExpressionMPContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by miniPythonParser#listExpMP.
-    def visitListExpMP(self, ctx:miniPythonParser.ListExpMPContext):
         return self.visitChildren(ctx)
 
 

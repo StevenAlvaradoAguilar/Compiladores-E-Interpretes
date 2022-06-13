@@ -1,0 +1,62 @@
+MIN = -1
+#Calcular factorial
+def calcularFac(num):
+    num_aux = 0
+    if (num < 1):
+        num_aux = MIN
+    else:
+        num_aux = num * (calcularFac(num-1,2)) #error de cantidad de argumentos
+    #return num_aux #se puede comentar el retorno para evaluar posibles llamadas que lo intenten utilizar
+
+ventas = [100,200,300,400,500]
+
+#promedio de elementos
+def promedio(cualquier_arreglo):
+    tam = len(cualquier_arreglo)
+    resultado=0
+    #ciclo para recorrer arreglo
+    cont = 0
+    sumatoria = 0
+    while (cont <= tam-1):
+        sumatoria = sumatoria + cualquier_arreglo[cont]
+        #sumatoria() #error no es un metodo es una variable
+        cont = cont + 1
+    if tam > 0:
+        resultado = sumatoria / tam
+
+    return resultado
+
+def calcularpromedioventas():
+    prom = promedio(ventas)
+    print("El promedio de las ventas es: ")
+    print(prom)
+
+def temp(a,b):
+	def temp2():
+		x = a
+		return False
+
+	#y = x + 1 #error de alcances. "x" no pertenece al nivel actual
+	if (0==0):
+		return True
+	else:
+		return temp2()
+
+"""
+    En es esta parte no se hace la validacion de error de alcance en la declaracion de un metodo
+    que no existe en el codigo.
+    La parte del error por mayor cantidad de argumentos lo detecta como error de parser, pero
+    al quitar un argumento que hay demas todavia lo detecta como error del parser.
+"""
+algo = temp2() #error de alcances de declaraciones de metodos
+#temp(1,2) #error por mayor cantidad de argumentos
+
+"""
+    En es esta parte de se hace la validacion de error contextual en las las tres llamadas
+    a las funciones, ya que no es la sintaxis correcta al escribirlos.
+"""
+#z = "hola"[2] + 3[2] + 'a'(3) #otros errores varios. VALIDARLOS UNO POR UNO
+
+print("Calculo del Factorial:%$ " + calcularFac(6))
+
+calcularpromedioventas()

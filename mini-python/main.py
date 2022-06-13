@@ -1,13 +1,21 @@
 import sys
+import os
+
+from antlr4 import FileStream, CommonTokenStream
 
 sys.path.append('./generated')
 
 from AContextual import *
 from MyErrorListener import *
+from codeGen import codeGen
 
 # Main para errores.
 if __name__ == "__main__":
-    input = FileStream('test.txt')
+    # input = FileStream('test.txt')
+    # input = FileStream('pruebaContextual.txt')
+    # input = FileStream('test2.txt')
+    # input = FileStream('Tarea5.txt')
+    input = FileStream('test3.txt')
     lexer = miniPythonLexer(input)
 
     try:
@@ -25,10 +33,18 @@ if __name__ == "__main__":
 
         tree = parser.program()
 
+        # Generador de errores contextuales
         mv = AContextual()
         mv.visit(tree)
 
-        if not (errorListener.hasError() and mv.hasErrors()):
+        # Generador de bytecode
+        v = codeGen()
+        v.visit(tree)
+        v.generar_bytecode()
+
+        os.system("MiniPY bytecode.txt")
+
+        if (not errorListener.hasError()) and (not mv.hasErrors()):
             print("Compilación Exitosa!!!")
         else:
             print("Compilación Fallida!!!")
@@ -39,5 +55,4 @@ if __name__ == "__main__":
 
     except RecognitionException:
         print("No hay archivo")
-        # print(e.with_traceback())
-        var = RecognitionException.__traceback__
+        var = RecognitionException.__traceback__()

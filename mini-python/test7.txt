@@ -1,0 +1,7 @@
+def Main():
+    numero = 0
+    print("La Tabla del 3")
+    while numero <= 10:
+        print(numero * 3)
+        numero = numero + 1
+    print("Fin")

@@ -1,0 +1,21 @@
+def operacionesBasicas():
+    x = 100
+    y = 20
+    suma = x + y
+    resta = x - y
+    multiplicacion = x * y
+    division = x / y
+    print("La suma es de: ")
+    print(suma)
+    print("La resta es de: ")
+    print(resta)
+    print("La multiplicacion es de: ")
+    print(multiplicacion)
+    print("La division es de: ")
+    print(division)
+    return 0
+
+def Main():
+    operacionesBasicas()
+
+

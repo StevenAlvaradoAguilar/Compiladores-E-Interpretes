@@ -1,0 +1,14 @@
+def metodo():
+    x = 10
+    x = x * metodouno()
+    print(x)
+    return None
+
+def metodouno():
+    x = 6
+    y = 7
+    x = x + y
+    return x
+
+def Main():
+    metodouno()
