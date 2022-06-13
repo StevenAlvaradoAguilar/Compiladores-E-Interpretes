@@ -2,38 +2,39 @@ from antlr4 import *
 
 class TablaSimbolos:
 
-    tabla = []
-
-    nivelActual = 0
+    def __init__(self):
+        self.tabla = []
+        self.nivelActual = 0
 
     class Ident:
-        tok: Token
 
-        def __init__(self, identifier, params, isMethod, decl):
-            self.identifier = identifier
-            self.nivel = TablaSimbolos.nivelActual
-            self.params = params
+        def __init__(self, identifier, level, isMethod, decl):
+            self.token = identifier
+            self.level = level
+            self.params = None
             self.isMethod = isMethod
             self.declCtx = decl
+
+        def setValue(self, value):
+            self.value = value
 
         def getNivel(self):
             return self.nivel
 
-    def __init__(self):
-        TablaSimbolos.tabla = []
-        TablaSimbolos.nivelActual = - 1
+    def getLevel(self):
+        return self.nivelActual
 
     # ----------------METODOS------------------
 
-    def insertar(self, identifier, params, isMethod, decl):
+    def insertar(self, identifier, level, isMethod, decl):
         # no se puede insertar un elemento repetido en el mismo nivel
-        i = TablaSimbolos.Ident(identifier, params, isMethod, decl)
-        self.tabla.append(i)
+        i = self.Ident(identifier, level, isMethod, decl)
+        self.tabla.insert(0, i)
 
     def buscar(self, nombre):
         tablaCopy = self.tabla.copy()
         for id1 in tablaCopy:
-            if str(id1.identifier) == str(nombre):
+            if str(id1.token) == str(nombre):
                 return id1
         return None
 
@@ -42,7 +43,7 @@ class TablaSimbolos:
 
     # Método lambda de tipo funcional
     def closeScope(self):
-        x = lambda n: n.nivel == self.nivelActual
+        x = lambda n: n.level == self.nivelActual
         tablaCopy = self.tabla.copy()
         # Iterar la tabla
         for n in tablaCopy:
@@ -54,5 +55,6 @@ class TablaSimbolos:
         print("----- INICIO TABLA ------")
         tablaCopy = self.tabla.copy()
         for i in tablaCopy:
-            print("Nombre: " + i.identifier + " - " + i.nivel)
+            token = i.token
+            print("Nombre: " + i.getText() + " - Nivel:" + str(i.nivel))
         print("----- FIN TABLA ------")

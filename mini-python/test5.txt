@@ -1,0 +1,11 @@
+def Main():
+    x = 89
+    if(x >= 50):
+        es_mayor = 1
+    else:
+        es_mayor = 0
+
+    print("El resultado es: ")
+    print(es_mayor)
+
+

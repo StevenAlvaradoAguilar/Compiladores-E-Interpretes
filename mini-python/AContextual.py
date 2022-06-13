@@ -46,23 +46,16 @@ class AContextual(miniPythonVisitor):
         # print(ctx.IDENTIFIER().getText())
 
         contador = 0
+        self.laTabla.openScope()
         m = self.laTabla.buscar(ctx.IDENTIFIER().getText())
         # saca todos los parámetros
         if ctx.argList().IDENTIFIER() is not None:
             contador = 1 + len(ctx.argList().moreArgs().IDENTIFIER())
         # print(contador)
 
-        if m is not None:
-            if m.isMethod:
-                # print("La función ya ha sido declarada " + ctx.IDENTIFIER().getText(), file=sys.stderr)
-                pass
-            else:
-                # print("El identificador no es un método " + ctx.IDENTIFIER().getText(), file=sys.stderr)
-                pass
-        else:
-            self.laTabla.insertar(ctx.IDENTIFIER().getText(), contador, True, "Declaración de Función")
+        #  identifier, level, isMethod, decl
+        self.laTabla.insertar(ctx.IDENTIFIER().getText(), self.laTabla.getLevel(), True, "Declaración de Función")
         self.visit(ctx.argList())
-        self.laTabla.openScope()
         self.visit(ctx.sequence())
         self.laTabla.closeScope()
 
@@ -126,8 +119,6 @@ class AContextual(miniPythonVisitor):
             self.laTabla.openScope()
             self.visit(ctx.sequence())
             self.laTabla.closeScope()
-            # self.laTabla.insertar(ctx.expression(), 0, False, ctx.expressionList())
-            # self.laTabla.imprimir()
             return self.visitChildren(ctx)
 
     # Visit a parse tree produced by miniPythonParser#returnStatementMP.
@@ -143,7 +134,8 @@ class AContextual(miniPythonVisitor):
     # Visit a parse tree produced by miniPythonParser#assignStatementMP.
     def visitAssignStatementMP(self, ctx: miniPythonParser.AssignStatementMPContext):
         if ctx.expression() is not None:
-            self.laTabla.insertar(ctx.IDENTIFIER(), 0, False, ctx.expression())
+            #  identifier, level, isMethod, decl
+            self.laTabla.insertar(ctx.IDENTIFIER(), self.laTabla.getLevel(), False, ctx.expression())
             self.visit(ctx.expression())
         return
 
@@ -153,11 +145,6 @@ class AContextual(miniPythonVisitor):
         nombreFuncionLlamada = None
         if ctx.primitiveExpression().IDENTIFIER() is not None:
             nombreFuncionLlamada = ctx.primitiveExpression().IDENTIFIER().getText()
-        if not self.laTabla.buscar(nombreFuncionLlamada):
-            print("La función no ha sido declarada " + ctx.primitiveExpression().getText(), file=sys.stderr)
-        if ctx.expressionList().expression() is not None:
-            print(ctx.expressionList().moreExpressions().expression()[0].getText())
-            # print("Los parámetros ingresados son erroneos " + ctx.expressionList().getText(), file=sys.stderr)
         # Validaciones de errores
         validationFunctionCall = ctx.primitiveExpression().getText()
         if '"' in validationFunctionCall:
@@ -167,7 +154,7 @@ class AContextual(miniPythonVisitor):
         listNumber = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
         for m in listNumber:
             if m in validationFunctionCall:
-                print("Error no se puede llamar a funciones con un numero", validationFunctionCall, file=sys.stderr)
+                print("Error no se puede llamar a funciones con un numero adelante del nombre, sino omita el mensaje", validationFunctionCall, file=sys.stderr)
 
         return self.visitChildren(ctx)
 
@@ -189,19 +176,15 @@ class AContextual(miniPythonVisitor):
 
     # Visit a parse tree produced by miniPythonParser#moreStatementsMP.
     def visitMoreStatementsMP(self, ctx: miniPythonParser.MoreStatementsMPContext):
-        """
-        Este método que da de está forma ya que el visitChildren visita
-        a todos.
-        """
-        return self.visitChildren(ctx)
+        for i in range(len(ctx.statement())):
+            self.visit(ctx.statement(i))
+        return None
 
     # Visit a parse tree produced by miniPythonParser#expression.
     def visitExpression(self, ctx: miniPythonParser.ExpressionContext):
-        """
-        Este método que da de está forma ya que el visitChildren visita
-        a todos.
-        """
-        return self.visitChildren(ctx)
+        self.visit(ctx.additionExpression())
+        self.visit(ctx.comparison())
+        return None
 
     # Visit a parse tree produced by miniPythonParser#comparisonMP.
     def visitComparisonMP(self, ctx: miniPythonParser.ComparisonMPContext):
@@ -213,11 +196,9 @@ class AContextual(miniPythonVisitor):
 
     # Visit a parse tree produced by miniPythonParser#additionExpressionMP.
     def visitAdditionExpressionMP(self, ctx: miniPythonParser.AdditionExpressionMPContext):
-        """
-        Este método que da de está forma ya que el visitChildren visita
-        a todos.
-        """
-        return self.visitChildren(ctx)
+        self.visit(ctx.multiplicationExpression())
+        self.visit(ctx.additionFactor())
+        return None
 
     # Visit a parse tree produced by miniPythonParser#additionFactorMP.
     def visitAdditionFactorMP(self, ctx: miniPythonParser.AdditionFactorMPContext):
@@ -229,11 +210,9 @@ class AContextual(miniPythonVisitor):
 
     # Visit a parse tree produced by miniPythonParser#multiplicationExpressionMP.
     def visitMultiplicationExpressionMP(self, ctx: miniPythonParser.MultiplicationExpressionMPContext):
-        """
-        Este método que da de está forma ya que el visitChildren visita
-        a todos.
-        """
-        return self.visitChildren(ctx)
+        self.visit(ctx.elementExpression())
+        self.visit(ctx.multiplicationFactor())
+        return None
 
     # Visit a parse tree produced by miniPythonParser#multiplicationFactorMP.
     def visitMultiplicationFactorMP(self, ctx: miniPythonParser.MultiplicationFactorMPContext):
@@ -262,14 +241,13 @@ class AContextual(miniPythonVisitor):
 
     # Visit a parse tree produced by miniPythonParser#elementAccessMP.
     def visitElementAccessMP(self, ctx: miniPythonParser.ElementAccessMPContext):
-        #print(ctx.expression()[0].getText())
         temporal = ""
         if ctx.expression() is not None:
             for x in ctx.expression():
                 temporal = x.getText()
                 # hacer un buscar
-                self.laTabla.insertar(temporal, 0, False, ctx.expression())  # verificar
-                # self.laTabla.imprimir()
+                #  identifier, level, isMethod, decl
+                self.laTabla.insertar(temporal, self.laTabla.getLevel(), False, ctx.expression())  # verificar
                 if self.laTabla.buscar(temporal) is None:
                     print("Error la variable no hay sido declarada " + temporal, file=sys.stderr)
             return self.visitChildren(ctx)
@@ -292,7 +270,8 @@ class AContextual(miniPythonVisitor):
 
     # Visit a parse tree produced by miniPythonParser#primitiveExpressionMP.
     def visitPrimitiveExpressionMP(self, ctx: miniPythonParser.PrimitiveExpressionMPContext):
-        self.laTabla.insertar(ctx.IDENTIFIER(), 0, False, ctx.expressionList())
+        #  identifier, level, isMethod, decl
+        self.laTabla.insertar(ctx.IDENTIFIER(), self.laTabla.getLevel(), False, ctx.expressionList())
         return self.visitChildren(ctx)
 
     # Visit a parse tree produced by miniPythonParser#listExpressionMP.
